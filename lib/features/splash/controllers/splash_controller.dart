@@ -56,19 +56,6 @@ class SplashController extends ChangeNotifier {
       ) async {
     // final ThemeController themeController = Provider.of<ThemeController>(context, listen: false);
 
-if (AppConstants.baseUrl.contains('jsonplaceholder')) {
-    _configModel = _createMockConfig();
-    _baseUrls = _configModel?.baseUrls;
-    getCurrencyData(_configModel?.currencyList?.first.code);
-    
-    if (onLocalDataReceived != null) {
-      onLocalDataReceived(_configModel);
-    }
-    
-    notifyListeners();
-    return true;
-  }
-
    var configLocalData =  await database.getCacheResponseById(AppConstants.configUri);
 
    bool localMaintainanceMode = false;
@@ -198,6 +185,7 @@ if (AppConstants.baseUrl.contains('jsonplaceholder')) {
 
     return isSuccess;
   }
+
 
 // Substitua seu método _createMockConfig() por este corrigido:
 ConfigModel _createMockConfig() {
