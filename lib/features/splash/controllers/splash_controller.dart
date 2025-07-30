@@ -56,6 +56,19 @@ class SplashController extends ChangeNotifier {
       ) async {
     // final ThemeController themeController = Provider.of<ThemeController>(context, listen: false);
 
+if (AppConstants.baseUrl.contains('jsonplaceholder')) {
+    _configModel = _createMockConfig();
+    _baseUrls = _configModel?.baseUrls;
+    getCurrencyData(_configModel?.currencyList?.first.code);
+    
+    if (onLocalDataReceived != null) {
+      onLocalDataReceived(_configModel);
+    }
+    
+    notifyListeners();
+    return true;
+  }
+
    var configLocalData =  await database.getCacheResponseById(AppConstants.configUri);
 
    bool localMaintainanceMode = false;
@@ -186,6 +199,78 @@ class SplashController extends ChangeNotifier {
     return isSuccess;
   }
 
+// Substitua seu método _createMockConfig() por este corrigido:
+ConfigModel _createMockConfig() {
+  return ConfigModel.fromJson({
+    "company_name": "Cobes Marketplace",
+    "company_email": "support@cobes.com", 
+    "company_phone": "+1234567890",
+    "primary_color": "#1455AC",
+    "secondary_color": "#7FBCD3",
+    "system_default_currency": 1,
+    "currency_list": [
+      {
+        "id": 1,
+        "name": "USD",
+        "symbol": "\$",
+        "code": "USD", 
+        "exchange_rate": "1.00000000",
+        "status": true
+      }
+    ],
+    "unit": ["kg", "pc", "gm", "ltr"],
+    "base_urls": {
+      "product_image_url": "https://via.placeholder.com/300x300",
+      "product_thumbnail_url": "https://via.placeholder.com/150x150",
+      "brand_image_url": "https://via.placeholder.com/100x100",
+      "customer_image_url": "https://via.placeholder.com/100x100",
+      "banner_image_url": "https://via.placeholder.com/800x400",
+      "category_image_url": "https://via.placeholder.com/200x200",
+      "shop_image_url": "https://via.placeholder.com/300x200"
+    },
+    "maintenance_mode": {
+      "maintenance_status": 0,
+      "selected_maintenance_system": {
+        "customer_app": 0
+      }
+    },
+    "customer_verification": {"status": 0},
+    "customer_login": {  // Estrutura corrigida
+      "login_option": {
+        "manual_login": 1,
+        "otp_login": 0,
+        "social_login": 0
+      },
+      "social_media_for_login": {
+        "google": {
+          "status": 0,
+          "client_id": ""
+        },
+        "facebook": {
+          "status": 0,
+          "app_id": "",
+          "app_secret": ""
+        },
+        "apple": {
+          "status": 0,
+          "client_id": "",
+          "team_id": "",
+          "key_id": "",
+          "service_file": ""
+        }
+      }
+    },
+    "user_app_version_control": {
+      "for_android": {"status": 0, "version": "1.0.0"},
+      "for_ios": {"status": 0, "version": "1.0.0"}
+    },
+    "has_local_db": false,
+    "local_m_mode": false,
+    "guest_checkout": 1,
+    "wallet_status": 1,
+    "ref_earning_status": "0"
+  });
+}
 
   void setFirstTimeConnectionCheck(bool isChecked) {
     _firstTimeConnectionCheck = isChecked;
