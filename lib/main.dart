@@ -5,51 +5,51 @@ import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_sixvalley_ecommerce/data/local/cache_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/facebook_login_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/google_login_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/banner/controllers/banner_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/checkout/controllers/checkout_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/compare/controllers/compare_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/contact_us/controllers/contact_us_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/deal/controllers/featured_deal_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/deal/controllers/flash_deal_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/location/controllers/location_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/loyaltyPoint/controllers/loyalty_point_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/notification/controllers/notification_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/onboarding/controllers/onboarding_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/order/controllers/order_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/controllers/seller_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product_details/controllers/product_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/profile/controllers/profile_contrroller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/refund/controllers/refund_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/reorder/controllers/re_order_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/restock/controllers/restock_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/review/controllers/review_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shipping/controllers/shipping_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/screens/splash_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/support/controllers/support_ticket_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/wallet/controllers/wallet_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/wishlist/controllers/wishlist_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/push_notification/models/notification_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/address/controllers/address_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/brand/controllers/brand_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/cart/controllers/cart_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/category/controllers/category_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/chat/controllers/chat_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/coupon/controllers/coupon_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/search_product/controllers/search_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shop/controllers/shop_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/push_notification/notification_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/theme/dark_theme.dart';
-import 'package:flutter_sixvalley_ecommerce/theme/light_theme.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
+import 'package:cobes_marketplace/data/local/cache_response.dart';
+import 'package:cobes_marketplace/features/auth/controllers/facebook_login_controller.dart';
+import 'package:cobes_marketplace/features/auth/controllers/google_login_controller.dart';
+import 'package:cobes_marketplace/features/banner/controllers/banner_controller.dart';
+import 'package:cobes_marketplace/features/checkout/controllers/checkout_controller.dart';
+import 'package:cobes_marketplace/features/compare/controllers/compare_controller.dart';
+import 'package:cobes_marketplace/features/contact_us/controllers/contact_us_controller.dart';
+import 'package:cobes_marketplace/features/deal/controllers/featured_deal_controller.dart';
+import 'package:cobes_marketplace/features/deal/controllers/flash_deal_controller.dart';
+import 'package:cobes_marketplace/features/location/controllers/location_controller.dart';
+import 'package:cobes_marketplace/features/loyaltyPoint/controllers/loyalty_point_controller.dart';
+import 'package:cobes_marketplace/features/notification/controllers/notification_controller.dart';
+import 'package:cobes_marketplace/features/onboarding/controllers/onboarding_controller.dart';
+import 'package:cobes_marketplace/features/order/controllers/order_controller.dart';
+import 'package:cobes_marketplace/features/order_details/controllers/order_details_controller.dart';
+import 'package:cobes_marketplace/features/product/controllers/product_controller.dart';
+import 'package:cobes_marketplace/features/product/controllers/seller_product_controller.dart';
+import 'package:cobes_marketplace/features/product_details/controllers/product_details_controller.dart';
+import 'package:cobes_marketplace/features/profile/controllers/profile_contrroller.dart';
+import 'package:cobes_marketplace/features/refund/controllers/refund_controller.dart';
+import 'package:cobes_marketplace/features/reorder/controllers/re_order_controller.dart';
+import 'package:cobes_marketplace/features/restock/controllers/restock_controller.dart';
+import 'package:cobes_marketplace/features/review/controllers/review_controller.dart';
+import 'package:cobes_marketplace/features/shipping/controllers/shipping_controller.dart';
+import 'package:cobes_marketplace/features/splash/controllers/splash_controller.dart';
+import 'package:cobes_marketplace/features/splash/screens/splash_screen.dart';
+import 'package:cobes_marketplace/features/support/controllers/support_ticket_controller.dart';
+import 'package:cobes_marketplace/features/wallet/controllers/wallet_controller.dart';
+import 'package:cobes_marketplace/features/wishlist/controllers/wishlist_controller.dart';
+import 'package:cobes_marketplace/localization/controllers/localization_controller.dart';
+import 'package:cobes_marketplace/push_notification/models/notification_body.dart';
+import 'package:cobes_marketplace/features/address/controllers/address_controller.dart';
+import 'package:cobes_marketplace/features/auth/controllers/auth_controller.dart';
+import 'package:cobes_marketplace/features/brand/controllers/brand_controller.dart';
+import 'package:cobes_marketplace/features/cart/controllers/cart_controller.dart';
+import 'package:cobes_marketplace/features/category/controllers/category_controller.dart';
+import 'package:cobes_marketplace/features/chat/controllers/chat_controller.dart';
+import 'package:cobes_marketplace/features/coupon/controllers/coupon_controller.dart';
+import 'package:cobes_marketplace/features/search_product/controllers/search_product_controller.dart';
+import 'package:cobes_marketplace/features/shop/controllers/shop_controller.dart';
+import 'package:cobes_marketplace/push_notification/notification_helper.dart';
+import 'package:cobes_marketplace/theme/controllers/theme_controller.dart';
+import 'package:cobes_marketplace/theme/dark_theme.dart';
+import 'package:cobes_marketplace/theme/light_theme.dart';
+import 'package:cobes_marketplace/utill/app_constants.dart';
 import 'package:provider/provider.dart';
 import 'di_container.dart' as di;
 import 'helper/custom_delegate.dart';
@@ -65,41 +65,47 @@ Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
 
-  if(Firebase.apps.isEmpty) {
-    if(Platform.isAndroid) {
-      // try{
-        ///todo you need to configure that firebase Option with your own firebase to run your app
-        await Firebase.initializeApp(options: const FirebaseOptions(
-          apiKey: "AIzaSyBuWvbVjhLHgMKuD8fO8Ih1j4Q9TK70qho",
-          projectId: "htmlfirebaseteste1",
-          messagingSenderId: "351877730271",
-          appId: "1:351877730271:android:1906ac3ba42a9ccf677e6a"
-        ));
-      // }finally{
-      //   await Firebase.initializeApp();
-      // }
-    }else{
+  /*try {
+    // Use a configuração automática do google-services.json
+    if (Firebase.apps.isEmpty) {
       await Firebase.initializeApp();
     }
-  }
-  await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
-  await di.init();
+    print('✅ Firebase inicializado com sucesso');
+  } catch (e) {
+    print('❌ Erro ao inicializar Firebase: $e');
+    // Continue a execução mesmo com erro do Firebase
+  }*/
 
-  flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.requestNotificationsPermission();
+  await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
+  // await di.init();
+
+ if (Platform.isAndroid) {
+    flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+        ?.requestNotificationsPermission();
+  }
+  if (Platform.isIOS) {
+    flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
+        ?.requestPermissions(
+          alert: true,
+          badge: true,
+          sound: true,
+        );
+  }
 
   NotificationBody? body;
-  try {
+try {
     final RemoteMessage? remoteMessage = await FirebaseMessaging.instance.getInitialMessage();
     if (remoteMessage != null) {
       body = NotificationHelper.convertNotification(remoteMessage.data);
     }
     await NotificationHelper.initialize(flutterLocalNotificationsPlugin);
     FirebaseMessaging.onBackgroundMessage(myBackgroundMessageHandler);
-  }catch(_) {}
-
-
-  // await NotificationHelper.initialize(flutterLocalNotificationsPlugin);
-  // FirebaseMessaging.onBackgroundMessage(myBackgroundMessageHandler);
+    print('✅ Notificações configuradas com sucesso');
+  } catch (e) {
+    print('❌ Erro ao configurar notificações: $e');
+  }
 
   runApp(MultiProvider(providers: [
       ChangeNotifierProvider(create: (context) => di.sl<CategoryController>()),

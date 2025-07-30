@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/support/controllers/support_ticket_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/support/domain/models/support_ticket_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/support/screens/support_conversation_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
-import 'package:flutter_sixvalley_ecommerce/features/checkout/widgets/shipping_details_widget.dart';
+import 'package:cobes_marketplace/common/basewidget/custom_asset_image_widget.dart';
+import 'package:cobes_marketplace/features/support/controllers/support_ticket_controller.dart';
+import 'package:cobes_marketplace/features/support/domain/models/support_ticket_model.dart';
+import 'package:cobes_marketplace/features/support/screens/support_conversation_screen.dart';
+import 'package:cobes_marketplace/helper/date_converter.dart';
+import 'package:cobes_marketplace/localization/language_constrants.dart';
+import 'package:cobes_marketplace/utill/custom_themes.dart';
+import 'package:cobes_marketplace/utill/dimensions.dart';
+import 'package:cobes_marketplace/utill/images.dart';
+import 'package:cobes_marketplace/features/checkout/widgets/shipping_details_widget.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 

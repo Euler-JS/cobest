@@ -1,20 +1,20 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/no_internet_screen_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/checkout/controllers/checkout_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/checkout/widgets/change_amount_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/offline_payment/domain/models/offline_payment_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/checkout/widgets/custom_check_box_widget.dart';
+import 'package:cobes_marketplace/common/basewidget/no_internet_screen_widget.dart';
+import 'package:cobes_marketplace/features/checkout/controllers/checkout_controller.dart';
+import 'package:cobes_marketplace/features/checkout/widgets/change_amount_widget.dart';
+import 'package:cobes_marketplace/features/offline_payment/domain/models/offline_payment_model.dart';
+import 'package:cobes_marketplace/features/splash/domain/models/config_model.dart';
+import 'package:cobes_marketplace/localization/language_constrants.dart';
+import 'package:cobes_marketplace/features/auth/controllers/auth_controller.dart';
+import 'package:cobes_marketplace/localization/controllers/localization_controller.dart';
+import 'package:cobes_marketplace/features/splash/controllers/splash_controller.dart';
+import 'package:cobes_marketplace/main.dart';
+import 'package:cobes_marketplace/utill/custom_themes.dart';
+import 'package:cobes_marketplace/utill/dimensions.dart';
+import 'package:cobes_marketplace/utill/images.dart';
+import 'package:cobes_marketplace/common/basewidget/custom_button_widget.dart';
+import 'package:cobes_marketplace/features/checkout/widgets/custom_check_box_widget.dart';
 import 'package:provider/provider.dart';
 
 class PaymentMethodBottomSheetWidget extends StatefulWidget {

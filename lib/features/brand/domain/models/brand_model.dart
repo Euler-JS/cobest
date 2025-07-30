@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/data/model/image_full_url.dart';
+import 'package:cobes_marketplace/data/model/image_full_url.dart';
 
 
 class Brand {

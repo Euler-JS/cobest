@@ -3,14 +3,14 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/data/local/cache_response.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/deal/domain/models/flash_deal_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/deal/domain/services/flash_deal_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
+import 'package:cobes_marketplace/data/local/cache_response.dart';
+import 'package:cobes_marketplace/data/model/api_response.dart';
+import 'package:cobes_marketplace/features/deal/domain/models/flash_deal_model.dart';
+import 'package:cobes_marketplace/features/deal/domain/services/flash_deal_service_interface.dart';
+import 'package:cobes_marketplace/features/product/domain/models/product_model.dart';
+import 'package:cobes_marketplace/helper/api_checker.dart';
+import 'package:cobes_marketplace/main.dart';
+import 'package:cobes_marketplace/utill/app_constants.dart';
 import 'package:intl/intl.dart';
 
 class FlashDealController extends ChangeNotifier {

@@ -2,18 +2,18 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/common/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/data/local/cache_response.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shop/domain/models/more_store_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shop/domain/models/seller_info_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shop/domain/models/seller_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shop/domain/services/shop_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/data_sync_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
+import 'package:cobes_marketplace/common/enums/data_source_enum.dart';
+import 'package:cobes_marketplace/data/local/cache_response.dart';
+import 'package:cobes_marketplace/data/model/api_response.dart';
+import 'package:cobes_marketplace/features/product/domain/models/product_model.dart';
+import 'package:cobes_marketplace/features/shop/domain/models/more_store_model.dart';
+import 'package:cobes_marketplace/features/shop/domain/models/seller_info_model.dart';
+import 'package:cobes_marketplace/features/shop/domain/models/seller_model.dart';
+import 'package:cobes_marketplace/features/shop/domain/services/shop_service_interface.dart';
+import 'package:cobes_marketplace/helper/api_checker.dart';
+import 'package:cobes_marketplace/helper/data_sync_helper.dart';
+import 'package:cobes_marketplace/main.dart';
+import 'package:cobes_marketplace/utill/app_constants.dart';
 
 class ShopController extends ChangeNotifier {
   final ShopServiceInterface? shopServiceInterface;

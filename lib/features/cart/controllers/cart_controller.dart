@@ -1,14 +1,14 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/cart/domain/services/cart_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/cart/domain/models/cart_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product_details/controllers/product_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shipping/controllers/shipping_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/show_custom_snakbar_widget.dart';
+import 'package:cobes_marketplace/features/cart/domain/services/cart_service_interface.dart';
+import 'package:cobes_marketplace/data/model/api_response.dart';
+import 'package:cobes_marketplace/features/cart/domain/models/cart_model.dart';
+import 'package:cobes_marketplace/features/product/domain/models/product_model.dart';
+import 'package:cobes_marketplace/features/product_details/controllers/product_details_controller.dart';
+import 'package:cobes_marketplace/features/shipping/controllers/shipping_controller.dart';
+import 'package:cobes_marketplace/helper/api_checker.dart';
+import 'package:cobes_marketplace/main.dart';
+import 'package:cobes_marketplace/common/basewidget/show_custom_snakbar_widget.dart';
 import 'package:provider/provider.dart';
 
 

@@ -1,7 +1,7 @@
-import 'package:flutter_sixvalley_ecommerce/features/deal/domain/repositories/featured_deal_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/deal/domain/services/featured_deal_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/common/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
+import 'package:cobes_marketplace/features/deal/domain/repositories/featured_deal_repository_interface.dart';
+import 'package:cobes_marketplace/features/deal/domain/services/featured_deal_service_interface.dart';
+import 'package:cobes_marketplace/common/enums/data_source_enum.dart';
+import 'package:cobes_marketplace/data/model/api_response.dart';
 
 class FeaturedDealService implements FeaturedDealServiceInterface {
   final FeaturedDealRepositoryInterface featuredDealRepositoryInterface;

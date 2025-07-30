@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/common/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/banner/domain/models/banner_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/banner/domain/services/banner_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/screens/brand_and_category_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shop/controllers/shop_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/brand/controllers/brand_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/category/controllers/category_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product_details/screens/product_details_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shop/screens/shop_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/data_sync_helper.dart';
+import 'package:cobes_marketplace/common/enums/data_source_enum.dart';
+import 'package:cobes_marketplace/features/banner/domain/models/banner_model.dart';
+import 'package:cobes_marketplace/features/banner/domain/services/banner_service_interface.dart';
+import 'package:cobes_marketplace/features/product/domain/models/product_model.dart';
+import 'package:cobes_marketplace/features/product/screens/brand_and_category_product_screen.dart';
+import 'package:cobes_marketplace/features/shop/controllers/shop_controller.dart';
+import 'package:cobes_marketplace/features/brand/controllers/brand_controller.dart';
+import 'package:cobes_marketplace/features/category/controllers/category_controller.dart';
+import 'package:cobes_marketplace/features/product_details/screens/product_details_screen.dart';
+import 'package:cobes_marketplace/features/shop/screens/shop_screen.dart';
+import 'package:cobes_marketplace/helper/data_sync_helper.dart';
 import 'package:provider/provider.dart';
 
 class BannerController extends ChangeNotifier {

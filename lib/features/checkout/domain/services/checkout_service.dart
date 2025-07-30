@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/checkout/domain/repositories/checkout_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/checkout/domain/services/checkout_service_interface.dart';
+import 'package:cobes_marketplace/features/checkout/domain/repositories/checkout_repository_interface.dart';
+import 'package:cobes_marketplace/features/checkout/domain/services/checkout_service_interface.dart';
 
 class CheckoutService implements CheckoutServiceInterface{
   CheckoutRepositoryInterface checkoutRepositoryInterface;

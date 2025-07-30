@@ -1,7 +1,7 @@
-import 'package:flutter_sixvalley_ecommerce/common/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/data/reposotories/data_sync_repo_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/data/services/data_sync_service_interface.dart';
+import 'package:cobes_marketplace/common/enums/data_source_enum.dart';
+import 'package:cobes_marketplace/data/model/api_response.dart';
+import 'package:cobes_marketplace/data/reposotories/data_sync_repo_interface.dart';
+import 'package:cobes_marketplace/data/services/data_sync_service_interface.dart';
 
 class DataSyncService implements DataSyncServiceInterface {
   DataSyncRepoInterface dataSyncRepoInterface;

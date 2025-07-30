@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/data/local/cache_response.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:cobes_marketplace/data/local/cache_response.dart';
+import 'package:cobes_marketplace/main.dart';
 
 class DbHelper{
   static insertOrUpdate({required String id, required CacheResponseCompanion data}) async {

@@ -2,11 +2,11 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/animated_custom_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/checkout/widgets/order_place_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/dashboard/screens/dashboard_screen.dart';
+import 'package:cobes_marketplace/localization/language_constrants.dart';
+import 'package:cobes_marketplace/utill/app_constants.dart';
+import 'package:cobes_marketplace/common/basewidget/animated_custom_dialog_widget.dart';
+import 'package:cobes_marketplace/features/checkout/widgets/order_place_dialog_widget.dart';
+import 'package:cobes_marketplace/features/dashboard/screens/dashboard_screen.dart';
 
 class DigitalPaymentScreen extends StatefulWidget {
   final String url;

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/deal/controllers/featured_deal_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/deal/controllers/flash_deal_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shop/controllers/shop_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/category/controllers/category_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/custom_button_widget.dart';
+import 'package:cobes_marketplace/features/deal/controllers/featured_deal_controller.dart';
+import 'package:cobes_marketplace/features/deal/controllers/flash_deal_controller.dart';
+import 'package:cobes_marketplace/features/product/controllers/product_controller.dart';
+import 'package:cobes_marketplace/features/shop/controllers/shop_controller.dart';
+import 'package:cobes_marketplace/features/splash/controllers/splash_controller.dart';
+import 'package:cobes_marketplace/localization/language_constrants.dart';
+import 'package:cobes_marketplace/features/category/controllers/category_controller.dart';
+import 'package:cobes_marketplace/localization/controllers/localization_controller.dart';
+import 'package:cobes_marketplace/utill/app_constants.dart';
+import 'package:cobes_marketplace/utill/custom_themes.dart';
+import 'package:cobes_marketplace/utill/dimensions.dart';
+import 'package:cobes_marketplace/common/basewidget/custom_button_widget.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/brand/controllers/brand_controller.dart';
+import 'package:cobes_marketplace/features/brand/controllers/brand_controller.dart';
 
 class SelectLanguageBottomSheetWidget extends StatefulWidget {
   const SelectLanguageBottomSheetWidget({super.key});

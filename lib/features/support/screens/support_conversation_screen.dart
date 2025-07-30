@@ -1,14 +1,14 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/support/controllers/support_ticket_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/support/domain/models/support_ticket_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/support/widgets/support_ticket_reply_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/custom_app_bar_widget.dart';
+import 'package:cobes_marketplace/features/support/controllers/support_ticket_controller.dart';
+import 'package:cobes_marketplace/features/support/domain/models/support_ticket_model.dart';
+import 'package:cobes_marketplace/features/support/widgets/support_ticket_reply_widget.dart';
+import 'package:cobes_marketplace/helper/date_converter.dart';
+import 'package:cobes_marketplace/features/auth/controllers/auth_controller.dart';
+import 'package:cobes_marketplace/utill/custom_themes.dart';
+import 'package:cobes_marketplace/utill/dimensions.dart';
+import 'package:cobes_marketplace/utill/images.dart';
+import 'package:cobes_marketplace/common/basewidget/custom_app_bar_widget.dart';
 import 'package:provider/provider.dart';
 
 class SupportConversationScreen extends StatefulWidget {

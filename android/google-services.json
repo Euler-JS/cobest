@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "531877993050",
+    "project_id": "cobestmarketplace",
+    "storage_bucket": "cobestmarketplace.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531877993050:android:8fd51d7e5ec2f67cf0d663",
+        "android_client_info": {
+          "package_name": "com.cobes.marketplace"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9AdaaqtlGxW5MOoH1n0yTdJRYHeeVo04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

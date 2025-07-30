@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/chat/controllers/chat_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/order/domain/models/order_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/shop_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
-import 'package:flutter_sixvalley_ecommerce/features/chat/screens/chat_screen.dart';
+import 'package:cobes_marketplace/features/chat/controllers/chat_controller.dart';
+import 'package:cobes_marketplace/features/order/domain/models/order_model.dart';
+import 'package:cobes_marketplace/features/order_details/controllers/order_details_controller.dart';
+import 'package:cobes_marketplace/helper/shop_helper.dart';
+import 'package:cobes_marketplace/utill/dimensions.dart';
+import 'package:cobes_marketplace/utill/images.dart';
+import 'package:cobes_marketplace/features/chat/screens/chat_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 

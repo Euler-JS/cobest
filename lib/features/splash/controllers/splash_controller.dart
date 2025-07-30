@@ -4,16 +4,16 @@ import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/show_custom_snakbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/data/local/cache_response.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/maintenance/maintenance_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/domain/models/business_pages_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/domain/services/splash_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
+import 'package:cobes_marketplace/common/basewidget/show_custom_snakbar_widget.dart';
+import 'package:cobes_marketplace/data/local/cache_response.dart';
+import 'package:cobes_marketplace/data/model/api_response.dart';
+import 'package:cobes_marketplace/features/maintenance/maintenance_screen.dart';
+import 'package:cobes_marketplace/features/splash/domain/models/business_pages_model.dart';
+import 'package:cobes_marketplace/features/splash/domain/models/config_model.dart';
+import 'package:cobes_marketplace/features/splash/domain/services/splash_service_interface.dart';
+import 'package:cobes_marketplace/helper/api_checker.dart';
+import 'package:cobes_marketplace/main.dart';
+import 'package:cobes_marketplace/utill/app_constants.dart';
 
 class SplashController extends ChangeNotifier {
   final SplashServiceInterface? splashServiceInterface;

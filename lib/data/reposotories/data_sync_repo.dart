@@ -1,16 +1,16 @@
 import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_sixvalley_ecommerce/common/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/common/enums/local_caches_type_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/data/datasource/remote/dio/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/data/datasource/remote/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/data/local/cache_response.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/data/reposotories/data_sync_repo_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/db_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
+import 'package:cobes_marketplace/common/enums/data_source_enum.dart';
+import 'package:cobes_marketplace/common/enums/local_caches_type_enum.dart';
+import 'package:cobes_marketplace/data/datasource/remote/dio/dio_client.dart';
+import 'package:cobes_marketplace/data/datasource/remote/exception/api_error_handler.dart';
+import 'package:cobes_marketplace/data/local/cache_response.dart';
+import 'package:cobes_marketplace/data/model/api_response.dart';
+import 'package:cobes_marketplace/data/reposotories/data_sync_repo_interface.dart';
+import 'package:cobes_marketplace/helper/db_helper.dart';
+import 'package:cobes_marketplace/main.dart';
+import 'package:cobes_marketplace/utill/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 

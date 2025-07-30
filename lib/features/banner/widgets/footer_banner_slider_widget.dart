@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/banner/controllers/banner_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/banner/domain/models/banner_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/banner/widgets/single_banner_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
+import 'package:cobes_marketplace/common/basewidget/custom_image_widget.dart';
+import 'package:cobes_marketplace/features/banner/controllers/banner_controller.dart';
+import 'package:cobes_marketplace/features/banner/domain/models/banner_model.dart';
+import 'package:cobes_marketplace/features/banner/widgets/single_banner_widget.dart';
+import 'package:cobes_marketplace/theme/controllers/theme_controller.dart';
+import 'package:cobes_marketplace/utill/dimensions.dart';
 import 'package:provider/provider.dart';
 
 class FooterBannerSliderWidget extends StatelessWidget {

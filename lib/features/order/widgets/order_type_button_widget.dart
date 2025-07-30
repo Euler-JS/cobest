@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/order/controllers/order_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
+import 'package:cobes_marketplace/features/order/controllers/order_controller.dart';
+import 'package:cobes_marketplace/theme/controllers/theme_controller.dart';
+import 'package:cobes_marketplace/utill/custom_themes.dart';
 import 'package:provider/provider.dart';
 
 class OrderTypeButton extends StatelessWidget {

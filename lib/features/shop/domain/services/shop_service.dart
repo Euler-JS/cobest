@@ -1,7 +1,7 @@
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shop/domain/repositories/shop_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shop/domain/services/shop_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/common/enums/data_source_enum.dart';
+import 'package:cobes_marketplace/data/model/api_response.dart';
+import 'package:cobes_marketplace/features/shop/domain/repositories/shop_repository_interface.dart';
+import 'package:cobes_marketplace/features/shop/domain/services/shop_service_interface.dart';
+import 'package:cobes_marketplace/common/enums/data_source_enum.dart';
 
 class ShopService implements ShopServiceInterface {
   final ShopRepositoryInterface shopRepositoryInterface;

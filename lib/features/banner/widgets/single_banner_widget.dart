@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/banner/controllers/banner_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/banner/domain/models/banner_model.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/custom_image_widget.dart';
+import 'package:cobes_marketplace/features/banner/controllers/banner_controller.dart';
+import 'package:cobes_marketplace/features/banner/domain/models/banner_model.dart';
+import 'package:cobes_marketplace/common/basewidget/custom_image_widget.dart';
 import 'package:provider/provider.dart';
 
 

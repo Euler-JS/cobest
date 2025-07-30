@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/title_row_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/category/controllers/category_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/category/screens/category_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/category/widgets/category_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/screens/brand_and_category_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
+import 'package:cobes_marketplace/common/basewidget/title_row_widget.dart';
+import 'package:cobes_marketplace/features/category/controllers/category_controller.dart';
+import 'package:cobes_marketplace/features/category/screens/category_screen.dart';
+import 'package:cobes_marketplace/features/category/widgets/category_widget.dart';
+import 'package:cobes_marketplace/features/product/screens/brand_and_category_product_screen.dart';
+import 'package:cobes_marketplace/localization/controllers/localization_controller.dart';
+import 'package:cobes_marketplace/localization/language_constrants.dart';
+import 'package:cobes_marketplace/utill/dimensions.dart';
 import 'package:provider/provider.dart';
 
 import 'category_shimmer_widget.dart';

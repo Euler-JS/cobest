@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/wishlist/controllers/wishlist_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/not_logged_in_bottom_sheet_widget.dart';
+import 'package:cobes_marketplace/features/auth/controllers/auth_controller.dart';
+import 'package:cobes_marketplace/features/wishlist/controllers/wishlist_controller.dart';
+import 'package:cobes_marketplace/utill/dimensions.dart';
+import 'package:cobes_marketplace/common/basewidget/not_logged_in_bottom_sheet_widget.dart';
 import 'package:provider/provider.dart';
 
 class FavouriteButtonWidget extends StatelessWidget {

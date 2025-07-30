@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/cart/controllers/cart_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/notification/controllers/notification_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/responsive_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
-import 'package:flutter_sixvalley_ecommerce/features/cart/screens/cart_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/notification/screens/notification_screen.dart';
+import 'package:cobes_marketplace/features/cart/controllers/cart_controller.dart';
+import 'package:cobes_marketplace/features/notification/controllers/notification_controller.dart';
+import 'package:cobes_marketplace/helper/responsive_helper.dart';
+import 'package:cobes_marketplace/utill/custom_themes.dart';
+import 'package:cobes_marketplace/utill/dimensions.dart';
+import 'package:cobes_marketplace/utill/images.dart';
+import 'package:cobes_marketplace/features/cart/screens/cart_screen.dart';
+import 'package:cobes_marketplace/features/notification/screens/notification_screen.dart';
 import 'package:provider/provider.dart';
 
 class CartHomePageWidget extends StatelessWidget {

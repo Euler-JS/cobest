@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/app_localization.dart';
+import 'package:cobes_marketplace/localization/app_localization.dart';
 
 String? getTranslated(String? key, BuildContext context) {
   String? text = key;
