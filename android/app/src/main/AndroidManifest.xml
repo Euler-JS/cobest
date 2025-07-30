@@ -44,7 +44,7 @@
         android:allowBackup="false"
         android:fullBackupContent="false">
 
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyD9AdaaqtlGxW5MOoH1n0yTdJRYHeeVo04" />
+<!--        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyD9AdaaqtlGxW5MOoH1n0yTdJRYHeeVo04" />-->
 
         <activity
             android:name=".MainActivity"

@@ -65,41 +65,47 @@ Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
 
-  if(Firebase.apps.isEmpty) {
-    if(Platform.isAndroid) {
-      // try{
-        ///todo you need to configure that firebase Option with your own firebase to run your app
-        await Firebase.initializeApp(options: const FirebaseOptions(
-          apiKey: "AIzaSyBuWvbVjhLHgMKuD8fO8Ih1j4Q9TK70qho",
-          projectId: "htmlfirebaseteste1",
-          messagingSenderId: "351877730271",
-          appId: "1:351877730271:android:1906ac3ba42a9ccf677e6a"
-        ));
-      // }finally{
-      //   await Firebase.initializeApp();
-      // }
-    }else{
+  try {
+    // Use a configuração automática do google-services.json
+    if (Firebase.apps.isEmpty) {
       await Firebase.initializeApp();
     }
+    print('✅ Firebase inicializado com sucesso');
+  } catch (e) {
+    print('❌ Erro ao inicializar Firebase: $e');
+    // Continue a execução mesmo com erro do Firebase
   }
+
   await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
   await di.init();
 
-  flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.requestNotificationsPermission();
+ if (Platform.isAndroid) {
+    flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+        ?.requestNotificationsPermission();
+  }
+  if (Platform.isIOS) {
+    flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
+        ?.requestPermissions(
+          alert: true,
+          badge: true,
+          sound: true,
+        );
+  }
 
   NotificationBody? body;
-  try {
+try {
     final RemoteMessage? remoteMessage = await FirebaseMessaging.instance.getInitialMessage();
     if (remoteMessage != null) {
       body = NotificationHelper.convertNotification(remoteMessage.data);
     }
     await NotificationHelper.initialize(flutterLocalNotificationsPlugin);
     FirebaseMessaging.onBackgroundMessage(myBackgroundMessageHandler);
-  }catch(_) {}
-
-
-  // await NotificationHelper.initialize(flutterLocalNotificationsPlugin);
-  // FirebaseMessaging.onBackgroundMessage(myBackgroundMessageHandler);
+    print('✅ Notificações configuradas com sucesso');
+  } catch (e) {
+    print('❌ Erro ao configurar notificações: $e');
+  }
 
   runApp(MultiProvider(providers: [
       ChangeNotifierProvider(create: (context) => di.sl<CategoryController>()),
