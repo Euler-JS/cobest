@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "351877730271",
+    "firebase_url": "https://htmlfirebaseteste1.firebaseio.com",
+    "project_id": "htmlfirebaseteste1",
+    "storage_bucket": "htmlfirebaseteste1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351877730271:android:ba8c2af5ad8b623e677e6a",
+        "android_client_info": {
+          "package_name": "com.example.sensordetemperatura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351877730271-i4kiacjeiq2skvqv22nkot17t49hm490.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqGMlWVCTxr54HLCrqTkwbhhHlRW7_ivY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "351877730271-i4kiacjeiq2skvqv22nkot17t49hm490.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "351877730271-d223mlm2u74pf2d7md3sbe1mkh77loij.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.equimoz.hlinkios"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351877730271:android:b0291b3928081a33677e6a",
+        "android_client_info": {
+          "package_name": "com.u6amtech.sixvalley_ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351877730271-i4kiacjeiq2skvqv22nkot17t49hm490.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqGMlWVCTxr54HLCrqTkwbhhHlRW7_ivY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "351877730271-i4kiacjeiq2skvqv22nkot17t49hm490.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "351877730271-d223mlm2u74pf2d7md3sbe1mkh77loij.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.equimoz.hlinkios"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

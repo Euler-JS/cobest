@@ -67,7 +67,7 @@ Future<void> main() async {
 
   if(Firebase.apps.isEmpty) {
     if(Platform.isAndroid) {
-      try{
+      // try{
         ///todo you need to configure that firebase Option with your own firebase to run your app
         await Firebase.initializeApp(options: const FirebaseOptions(
           apiKey: "AIzaSyBuWvbVjhLHgMKuD8fO8Ih1j4Q9TK70qho",
@@ -75,9 +75,9 @@ Future<void> main() async {
           messagingSenderId: "351877730271",
           appId: "1:351877730271:android:1906ac3ba42a9ccf677e6a"
         ));
-      }finally{
-        await Firebase.initializeApp();
-      }
+      // }finally{
+      //   await Firebase.initializeApp();
+      // }
     }else{
       await Firebase.initializeApp();
     }
