@@ -65,7 +65,7 @@ Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
 
-  try {
+  /*try {
     // Use a configuração automática do google-services.json
     if (Firebase.apps.isEmpty) {
       await Firebase.initializeApp();
@@ -74,10 +74,10 @@ Future<void> main() async {
   } catch (e) {
     print('❌ Erro ao inicializar Firebase: $e');
     // Continue a execução mesmo com erro do Firebase
-  }
+  }*/
 
   await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
-  await di.init();
+  // await di.init();
 
  if (Platform.isAndroid) {
     flutterLocalNotificationsPlugin
