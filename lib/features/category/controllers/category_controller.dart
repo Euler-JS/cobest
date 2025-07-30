@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/common/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/category/domain/models/category_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/category/domain/services/category_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/controllers/seller_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/data_sync_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/features/brand/controllers/brand_controller.dart';
+import 'package:cobes_marketplace/common/enums/data_source_enum.dart';
+import 'package:cobes_marketplace/data/model/api_response.dart';
+import 'package:cobes_marketplace/features/category/domain/models/category_model.dart';
+import 'package:cobes_marketplace/features/category/domain/services/category_service_interface.dart';
+import 'package:cobes_marketplace/features/product/controllers/seller_product_controller.dart';
+import 'package:cobes_marketplace/helper/api_checker.dart';
+import 'package:cobes_marketplace/helper/data_sync_helper.dart';
+import 'package:cobes_marketplace/main.dart';
+import 'package:cobes_marketplace/features/brand/controllers/brand_controller.dart';
 import 'package:provider/provider.dart';
 
 class CategoryController extends ChangeNotifier {

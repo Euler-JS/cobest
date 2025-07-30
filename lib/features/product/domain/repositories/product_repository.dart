@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/common/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/data/datasource/remote/dio/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/data/datasource/remote/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/data/services/data_sync_service.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/domain/repositories/product_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/enums/product_type.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
+import 'package:cobes_marketplace/common/enums/data_source_enum.dart';
+import 'package:cobes_marketplace/data/datasource/remote/dio/dio_client.dart';
+import 'package:cobes_marketplace/data/datasource/remote/exception/api_error_handler.dart';
+import 'package:cobes_marketplace/data/model/api_response.dart';
+import 'package:cobes_marketplace/data/services/data_sync_service.dart';
+import 'package:cobes_marketplace/features/product/domain/repositories/product_repository_interface.dart';
+import 'package:cobes_marketplace/features/product/enums/product_type.dart';
+import 'package:cobes_marketplace/utill/app_constants.dart';
 
 class ProductRepository extends DataSyncService implements ProductRepositoryInterface{
   final DioClient dioClient;

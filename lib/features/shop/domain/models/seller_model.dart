@@ -1,7 +1,7 @@
-import 'package:flutter_sixvalley_ecommerce/data/model/image_full_url.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shop/domain/enums/vacation_duration_type.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:cobes_marketplace/data/model/image_full_url.dart';
+import 'package:cobes_marketplace/features/shop/domain/enums/vacation_duration_type.dart';
+import 'package:cobes_marketplace/features/splash/controllers/splash_controller.dart';
+import 'package:cobes_marketplace/main.dart';
 import 'package:provider/provider.dart';
 
 class SellerModel {

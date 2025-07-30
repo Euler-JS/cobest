@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/common/enums/local_caches_type_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/models/language_model.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
+import 'package:cobes_marketplace/common/enums/local_caches_type_enum.dart';
+import 'package:cobes_marketplace/localization/models/language_model.dart';
+import 'package:cobes_marketplace/utill/images.dart';
 
 class AppConstants {
   static const String appName = '6valley';

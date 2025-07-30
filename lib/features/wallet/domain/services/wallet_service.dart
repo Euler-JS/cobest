@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/wallet/domain/repositories/wallet_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/wallet/domain/services/wallet_service_interface.dart';
+import 'package:cobes_marketplace/features/wallet/domain/repositories/wallet_repository_interface.dart';
+import 'package:cobes_marketplace/features/wallet/domain/services/wallet_service_interface.dart';
 
 class WalletService implements WalletServiceInterface{
   WalletRepositoryInterface walletRepositoryInterface;

@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/deal/domain/repositories/flash_deal_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/deal/domain/services/flash_deal_service_interface.dart';
+import 'package:cobes_marketplace/features/deal/domain/repositories/flash_deal_repository_interface.dart';
+import 'package:cobes_marketplace/features/deal/domain/services/flash_deal_service_interface.dart';
 
 class FlashDealService implements FlashDealServiceInterface{
   FlashDealRepositoryInterface flashDealRepositoryInterface;

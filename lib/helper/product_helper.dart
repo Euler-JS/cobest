@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/product_details/domain/models/product_details_model.dart';
+import 'package:cobes_marketplace/features/product_details/domain/models/product_details_model.dart';
 
 class ProductHelper{
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/deal/domain/services/featured_deal_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/common/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/data_sync_helper.dart';
+import 'package:cobes_marketplace/features/deal/domain/services/featured_deal_service_interface.dart';
+import 'package:cobes_marketplace/features/product/domain/models/product_model.dart';
+import 'package:cobes_marketplace/common/enums/data_source_enum.dart';
+import 'package:cobes_marketplace/helper/data_sync_helper.dart';
 
 class FeaturedDealController extends ChangeNotifier {
   final FeaturedDealServiceInterface featuredDealServiceInterface;

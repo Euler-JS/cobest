@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/amount_widget.dart';
+import 'package:cobes_marketplace/features/order_details/controllers/order_details_controller.dart';
+import 'package:cobes_marketplace/helper/price_converter.dart';
+import 'package:cobes_marketplace/localization/language_constrants.dart';
+import 'package:cobes_marketplace/utill/dimensions.dart';
+import 'package:cobes_marketplace/common/basewidget/amount_widget.dart';
 
 class OrderAmountCalculation extends StatelessWidget {
   final double itemTotalAmount;

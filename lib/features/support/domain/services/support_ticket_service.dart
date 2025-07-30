@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/features/support/domain/models/support_ticket_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/support/domain/repositories/support_ticket_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/support/domain/services/support_ticket_service_interface.dart';
+import 'package:cobes_marketplace/features/support/domain/models/support_ticket_body.dart';
+import 'package:cobes_marketplace/features/support/domain/repositories/support_ticket_repository_interface.dart';
+import 'package:cobes_marketplace/features/support/domain/services/support_ticket_service_interface.dart';
 import 'package:image_picker/image_picker.dart';
 
 class SupportTicketService implements SupportTicketServiceInterface{

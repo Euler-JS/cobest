@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/helper/date_converter.dart';
+import 'package:cobes_marketplace/helper/date_converter.dart';
 
 class LoyaltyPointModel {
   int? limit;
