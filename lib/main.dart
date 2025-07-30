@@ -77,7 +77,7 @@ Future<void> main() async {
   }*/
 
   await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
-  // await di.init();
+  await di.init();
 
  if (Platform.isAndroid) {
     flutterLocalNotificationsPlugin

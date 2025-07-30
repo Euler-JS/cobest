@@ -190,6 +190,7 @@ final sl = GetIt.instance;
 Future<void> init() async {
   // Core
   final sharedPreferences = await SharedPreferences.getInstance();
+  // sl.registerLazySingleton(() => ThemeController(sharedPreferences: sl()));
   sl.registerLazySingleton(() => sharedPreferences);
   sl.registerLazySingleton(() => Dio());
   sl.registerLazySingleton(() => LoggingInterceptor());

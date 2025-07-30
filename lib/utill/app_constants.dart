@@ -9,7 +9,7 @@ class AppConstants {
   static const LocalCachesTypeEnum cachesType = LocalCachesTypeEnum.all;
 
 
-  static const String baseUrl = 'YOUR_BASE_URL_HERE';
+  static const String baseUrl = 'https://jsonplaceholder.typicode.com';
 
   static const String userId = 'userId';
   static const String name = 'name';
