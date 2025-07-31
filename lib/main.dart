@@ -65,16 +65,16 @@ Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
 
-  /*try {
-    // Use a configuração automática do google-services.json
-    if (Firebase.apps.isEmpty) {
-      await Firebase.initializeApp();
-    }
-    print('✅ Firebase inicializado com sucesso');
-  } catch (e) {
-    print('❌ Erro ao inicializar Firebase: $e');
-    // Continue a execução mesmo com erro do Firebase
-  }*/
+  // try {
+  //   // Use a configuração automática do google-services.json
+  //   if (Firebase.apps.isEmpty) {
+  //     await Firebase.initializeApp();
+  //   }
+  //   print('✅ Firebase inicializado com sucesso');
+  // } catch (e) {
+  //   print('❌ Erro ao inicializar Firebase: $e');
+  //   // Continue a execução mesmo com erro do Firebase
+  // }
 
   await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
   await di.init();
