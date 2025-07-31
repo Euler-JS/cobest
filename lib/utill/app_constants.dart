@@ -3,7 +3,7 @@ import 'package:cobes_marketplace/localization/models/language_model.dart';
 import 'package:cobes_marketplace/utill/images.dart';
 
 class AppConstants {
-  static const String appName = '6valley';
+  static const String appName = 'Cobest';
   static const String slogan = 'E-Commerce Marketplace';
   static const String appVersion = '15.3'; ///Flutter SDK 3.32.6
   static const LocalCachesTypeEnum cachesType = LocalCachesTypeEnum.all;
