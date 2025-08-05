@@ -36,6 +36,9 @@ ThemeData dark = ThemeData(
     surfaceContainer: const Color(0xFFB8551A), // Laranja mais escuro
     error: const Color(0xFFFF4040), // Danger Color
     shadow: const Color(0xFFF4F7FC),
+    
+    // Cor específica para splash screen - branco mesmo no modo escuro para contraste com logo
+    surfaceVariant: Colors.white, // Splash screen sempre branco para melhor visibilidade do logo
   ),
 
   pageTransitionsTheme: const PageTransitionsTheme(builders: {

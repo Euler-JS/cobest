@@ -14,6 +14,9 @@ ThemeData light({Color? primaryColor, Color? secondaryColor}) => ThemeData(
   cardColor: Colors.white,
 
   scaffoldBackgroundColor: const Color(0xFFF7F8FA),
+  
+  // Configuração específica para splash screen
+  splashFactory: InkRipple.splashFactory,
 
   textTheme: TextTheme(
     bodyLarge: const TextStyle(color: Color(0xFF222324)),  // Text color primary
@@ -37,6 +40,9 @@ ThemeData light({Color? primaryColor, Color? secondaryColor}) => ThemeData(
     outline: const Color(0xFFD2691E), // Info Color usando laranja Cobest
     onTertiary: const Color(0xFFFFF8F0), // Background muito claro
     shadow: const Color(0xFF66717C),
+    
+    // Cor específica para splash screen - branco para contraste com logo
+    surfaceVariant: Colors.white, // Pode ser usado para splash screen
 
     primaryContainer: const Color(0xFFFFE4CC), // Container laranja claro
     secondaryContainer: const Color(0xFFE9EEF4),
