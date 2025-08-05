@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:cobes_marketplace/utill/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,18 +22,25 @@ class ThemeController with ChangeNotifier {
     notifyListeners();
   }
 
-  Color? selectedPrimaryColor;
-  Color? selectedSecondaryColor;
-
-
+  // Cores padrão baseadas no logo da Cobest
+  Color? selectedPrimaryColor = const Color(0xFFD2691E); // Laranja Cobest
+  Color? selectedSecondaryColor = const Color(0xFF4A4A4A); // Cinza escuro Cobest
 
   void setThemeColor({Color? primaryColor, Color? secondaryColor}) {
-    selectedPrimaryColor = primaryColor;
-    selectedPrimaryColor = secondaryColor;
+    selectedPrimaryColor = primaryColor ?? const Color(0xFFD2691E);
+    selectedSecondaryColor = secondaryColor ?? const Color(0xFF4A4A4A);
 
     notifyListeners();
   }
 
+  // Método para resetar para as cores padrão da Cobest
+  void resetToCobestColors() {
+    selectedPrimaryColor = const Color(0xFFD2691E);
+    selectedSecondaryColor = const Color(0xFF4A4A4A);
+    notifyListeners();
+  }
 
-
+  // Getters para as cores atuais
+  Color get currentPrimaryColor => selectedPrimaryColor ?? const Color(0xFFD2691E);
+  Color get currentSecondaryColor => selectedSecondaryColor ?? const Color(0xFF4A4A4A);
 }
