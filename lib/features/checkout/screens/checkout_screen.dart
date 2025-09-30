@@ -1,38 +1,150 @@
+
+// ================== IMPORTS ==================
 import 'package:flutter/material.dart';
-import 'package:cobes_marketplace/features/address/controllers/address_controller.dart';
-import 'package:cobes_marketplace/features/address/screens/saved_address_list_screen.dart';
-import 'package:cobes_marketplace/features/address/screens/saved_billing_address_list_screen.dart';
-import 'package:cobes_marketplace/features/cart/domain/models/cart_model.dart';
-import 'package:cobes_marketplace/features/checkout/controllers/checkout_controller.dart';
-import 'package:cobes_marketplace/features/checkout/widgets/checkout_condition_checkbox.dart';
-import 'package:cobes_marketplace/features/checkout/widgets/payment_method_bottom_sheet_widget.dart';
-import 'package:cobes_marketplace/features/offline_payment/screens/offline_payment_screen.dart';
-import 'package:cobes_marketplace/features/profile/controllers/profile_contrroller.dart';
-import 'package:cobes_marketplace/features/shipping/controllers/shipping_controller.dart';
-import 'package:cobes_marketplace/helper/debounce_helper.dart';
-import 'package:cobes_marketplace/helper/price_converter.dart';
-import 'package:cobes_marketplace/localization/language_constrants.dart';
-import 'package:cobes_marketplace/main.dart';
-import 'package:cobes_marketplace/features/auth/controllers/auth_controller.dart';
-import 'package:cobes_marketplace/features/cart/controllers/cart_controller.dart';
-import 'package:cobes_marketplace/features/coupon/controllers/coupon_controller.dart';
-import 'package:cobes_marketplace/features/splash/controllers/splash_controller.dart';
-import 'package:cobes_marketplace/utill/custom_themes.dart';
-import 'package:cobes_marketplace/utill/dimensions.dart';
-import 'package:cobes_marketplace/common/basewidget/amount_widget.dart';
-import 'package:cobes_marketplace/common/basewidget/animated_custom_dialog_widget.dart';
-import 'package:cobes_marketplace/common/basewidget/custom_app_bar_widget.dart';
-import 'package:cobes_marketplace/common/basewidget/custom_button_widget.dart';
-import 'package:cobes_marketplace/features/checkout/widgets/order_place_dialog_widget.dart';
-import 'package:cobes_marketplace/common/basewidget/show_custom_snakbar_widget.dart';
-import 'package:cobes_marketplace/common/basewidget/custom_textfield_widget.dart';
-import 'package:cobes_marketplace/features/checkout/widgets/choose_payment_widget.dart';
-import 'package:cobes_marketplace/features/checkout/widgets/coupon_apply_widget.dart';
-import 'package:cobes_marketplace/features/checkout/widgets/shipping_details_widget.dart';
-import 'package:cobes_marketplace/features/checkout/widgets/wallet_payment_widget.dart';
-import 'package:cobes_marketplace/features/checkout/widgets/mpesa_payment_widget.dart';
-import 'package:cobes_marketplace/features/dashboard/screens/dashboard_screen.dart';
 import 'package:provider/provider.dart';
+import '../../../utill/dimensions.dart';
+import '../../../utill/custom_themes.dart';
+import '../../../helper/price_converter.dart';
+import '../../../localization/language_constrants.dart';
+import '../../../common/basewidget/show_custom_snakbar_widget.dart';
+import '../../../common/basewidget/animated_custom_dialog_widget.dart';
+import '../widgets/choose_payment_widget.dart';
+import 'package:cobes_marketplace/common/basewidget/custom_button_widget.dart';
+import '../widgets/checkout_condition_checkbox.dart';
+import '../widgets/shipping_details_widget.dart';
+import '../widgets/coupon_apply_widget.dart';
+import '../widgets/mpesa_payment_widget.dart';
+import '../widgets/payment_method_bottom_sheet_widget.dart';
+import '../widgets/wallet_payment_widget.dart';
+import 'package:cobes_marketplace/common/basewidget/amount_widget.dart';
+import '../../offline_payment/screens/offline_payment_screen.dart';
+import '../../address/screens/saved_address_list_screen.dart';
+import '../../address/screens/saved_billing_address_list_screen.dart';
+import '../../cart/domain/models/cart_model.dart';
+import '../controllers/checkout_controller.dart';
+import 'package:cobes_marketplace/common/basewidget/custom_textfield_widget.dart';
+import '../../address/controllers/address_controller.dart';
+import '../../coupon/controllers/coupon_controller.dart';
+import '../../cart/controllers/cart_controller.dart';
+import '../../shipping/controllers/shipping_controller.dart';
+import '../../splash/controllers/splash_controller.dart';
+import '../../auth/controllers/auth_controller.dart';
+import 'package:cobes_marketplace/features/checkout/widgets/order_place_dialog_widget.dart';
+import '../../profile/controllers/profile_contrroller.dart';
+import '../../../helper/debounce_helper.dart';
+import 'package:cobes_marketplace/features/dashboard/screens/dashboard_screen.dart';
+// =============================================
+
+// Dialog customizado para sucesso Ponto24
+class _Ponto24SuccessDialog extends StatelessWidget {
+  final String entity;
+  final String reference;
+  final String amount;
+  final String invoice;
+  final String orderId;
+  const _Ponto24SuccessDialog({
+    required this.entity,
+    required this.reference,
+    required this.amount,
+    required this.invoice,
+    required this.orderId,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Icon(Icons.check_circle, color: Colors.green, size: 56),
+              const SizedBox(height: 12),
+              Text('Order Placed Successfully!', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+              const SizedBox(height: 8),
+              Text('Your payment has been processed and your order - $orderId has been placed.', textAlign: TextAlign.center),
+              const SizedBox(height: 24),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade50,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    Text('Ponto 24 Payment Details', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.blue.shade900)),
+                    const SizedBox(height: 16),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _Ponto24Detail(label: 'Entity', value: entity),
+                        const SizedBox(height: 8),
+                        _Ponto24Detail(label: 'Reference', value: reference),
+                        const SizedBox(height: 8),
+                        _Ponto24Detail(label: 'Amount', value: 'MZN$amount'),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    Text('Invoice: $invoice', style: TextStyle(fontSize: 13, color: Colors.blueGrey)),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  const Icon(Icons.info_outline, color: Colors.blue, size: 20),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Go to any Ponto 24 and make the deposit using these details. Your order will only be processed and shipped after deposit confirmation.',
+                      style: TextStyle(fontSize: 13, color: Colors.black87),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue.shade700,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                  ),
+                  child: const Text('OK, Back to Home'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _Ponto24Detail extends StatelessWidget {
+  final String label;
+  final String value;
+  const _Ponto24Detail({required this.label, required this.value});
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(label, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blueGrey)),
+        const SizedBox(height: 4),
+        Text(value, style: TextStyle(fontSize: 15, color: Colors.black)),
+      ],
+    );
+  }
+}
 
 class CheckoutScreen extends StatefulWidget {
   final List<CartModel> cartList;
@@ -94,7 +206,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
       Provider.of<CheckoutController>(context, listen: false).toggleTermsCheck(isUpdate: false);
     }
 
-    _billingAddress = Provider.of<SplashController>(Get.context!, listen: false).configModel!.billingInputByCustomer == 1;
+  _billingAddress = Provider.of<SplashController>(context, listen: false).configModel!.billingInputByCustomer == 1;
     Provider.of<CheckoutController>(context, listen: false).clearData();
   }
 
@@ -150,6 +262,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                             ? (!orderProvider.sameAsBilling ? locationProvider.addressList![orderProvider.billingAddressIndex!].id.toString() : locationProvider.addressList![orderProvider.addressIndex!].id.toString())
                                             : '';
 
+
                                         // Se método M-Pesa selecionado, exibe dialogo
                                         if (orderProvider.selectedDigitalPaymentMethodName.toLowerCase().contains('mpesa')) {
                                           showModalBottomSheet(
@@ -179,6 +292,39 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                               },
                                             ),
                                           );
+                                          return;
+                                        }
+
+                                        // Se método Ponto24 selecionado, chama API e exibe tela de sucesso customizada
+                                        if (orderProvider.selectedDigitalPaymentMethodName.toLowerCase().contains('ponto24')) {
+                                          final resp = await orderProvider.placeOrderByPonto24(
+                                            addressId: addressId,
+                                            billingAddressId: billingAddressId,
+                                            couponCode: couponCode,
+                                            couponDiscount: double.tryParse(couponCodeAmount) ?? 0,
+                                            orderNote: orderNote,
+                                            guestId: Provider.of<AuthController>(context, listen: false).isLoggedIn()
+                                                ? null
+                                                : Provider.of<AuthController>(context, listen: false).getGuestToken(),
+                                          );
+                                          if (resp.response != null && resp.response!.statusCode == 200) {
+                                            // Exibe tela customizada com dados Ponto24
+                                            showDialog(
+                                              context: context,
+                                              barrierDismissible: false,
+                                              builder: (_) => _Ponto24SuccessDialog(
+                                                entity: resp.response!.data['entity']?.toString() ?? '',
+                                                reference: resp.response!.data['ponto24_reference']?.toString() ?? '',
+                                                amount: resp.response!.data['amount']?.toString() ?? '',
+                                                invoice: resp.response!.data['invoice_number']?.toString() ?? '',
+                                                orderId: (resp.response!.data['order_ids'] is List && resp.response!.data['order_ids'].isNotEmpty)
+                                                    ? resp.response!.data['order_ids'][0].toString()
+                                                    : '',
+                                              ),
+                                            );
+                                          } else {
+                                            showCustomSnackBar(resp.error ?? 'Erro ao processar pagamento Ponto24', context, isToaster: true);
+                                          }
                                           return;
                                         }
 
@@ -264,7 +410,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
           );
         },
       ),
-      appBar: CustomAppBar(title: getTranslated('checkout', context)),
+  appBar: AppBar(title: Text(getTranslated('checkout', context) ?? 'Checkout')),
       body: Consumer<AuthController>(
         builder: (context, authProvider, _) {
           return Consumer<CheckoutController>(
@@ -415,7 +561,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
 
   void _callback(bool isSuccess, String message, String orderID, bool createAccount) async {
     if(isSuccess) {
-        Navigator.of(Get.context!).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => const DashBoardScreen()), (route) => false);
+        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => const DashBoardScreen()), (route) => false);
         showAnimatedDialog(context, OrderPlaceDialogWidget(
           icon: Icons.check,
           title: getTranslated(createAccount ? 'order_placed_Account_Created' : 'order_placed', context),

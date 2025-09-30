@@ -10,6 +10,7 @@ import 'package:cobes_marketplace/features/auth/controllers/auth_controller.dart
 import 'package:cobes_marketplace/features/cart/domain/models/cart_model.dart';
 import 'package:cobes_marketplace/features/checkout/domain/services/checkout_service_interface.dart';
 import 'package:cobes_marketplace/features/checkout/domain/services/mpesa_payment_service.dart';
+import 'package:cobes_marketplace/features/checkout/domain/services/ponto24_payment_service.dart';
 import 'package:cobes_marketplace/features/offline_payment/domain/models/offline_payment_model.dart';
 import 'package:cobes_marketplace/features/splash/controllers/splash_controller.dart';
 import 'package:cobes_marketplace/helper/api_checker.dart';
@@ -25,6 +26,30 @@ import 'package:cobes_marketplace/features/checkout/screens/digital_payment_orde
 
 
 class CheckoutController with ChangeNotifier {
+  // Ponto24 payment method
+  Future<ApiResponseModel> placeOrderByPonto24({
+    required String addressId,
+    required String billingAddressId,
+    String? couponCode,
+    double? couponDiscount,
+    String? orderNote,
+    String? guestId,
+  }) async {
+    _isLoading = true;
+    notifyListeners();
+    final ponto24Service = Ponto24PaymentService(checkoutService: checkoutServiceInterface);
+    final response = await ponto24Service.placeOrderByPonto24(
+      addressId: addressId,
+      billingAddressId: billingAddressId,
+      couponCode: couponCode,
+      couponDiscount: couponDiscount,
+      orderNote: orderNote,
+      guestId: guestId,
+    );
+    _isLoading = false;
+    notifyListeners();
+    return response;
+  }
   // M-Pesa payment method
   Future<ApiResponseModel> placeOrderByMpesa({
     required String mpesaPhoneNumber,
