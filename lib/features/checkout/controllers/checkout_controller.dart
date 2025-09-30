@@ -1,7 +1,15 @@
+import 'package:provider/provider.dart';
+
+
+
+// ...existing code...
+// ...existing code...
+
 import 'package:cobes_marketplace/data/model/api_response.dart';
 import 'package:cobes_marketplace/features/auth/controllers/auth_controller.dart';
 import 'package:cobes_marketplace/features/cart/domain/models/cart_model.dart';
 import 'package:cobes_marketplace/features/checkout/domain/services/checkout_service_interface.dart';
+import 'package:cobes_marketplace/features/checkout/domain/services/mpesa_payment_service.dart';
 import 'package:cobes_marketplace/features/offline_payment/domain/models/offline_payment_model.dart';
 import 'package:cobes_marketplace/features/splash/controllers/splash_controller.dart';
 import 'package:cobes_marketplace/helper/api_checker.dart';
@@ -10,12 +18,47 @@ import 'package:cobes_marketplace/main.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:cobes_marketplace/common/basewidget/show_custom_snakbar_widget.dart';
+
 import 'package:cobes_marketplace/features/checkout/screens/digital_payment_order_place_screen.dart';
-import 'package:provider/provider.dart';
+
 
 
 
 class CheckoutController with ChangeNotifier {
+  // M-Pesa payment method
+  Future<ApiResponseModel> placeOrderByMpesa({
+    required String mpesaPhoneNumber,
+    required String addressId,
+    required String billingAddressId,
+    String? couponCode,
+    double? couponDiscount,
+    String? orderNote,
+    String? guestId,
+    double? bringChangeAmount,
+  }) async {
+    _isLoading = true;
+    notifyListeners();
+    final mpesaService = MpesaPaymentService(checkoutService: checkoutServiceInterface);
+    final response = await mpesaService.placeOrderByMpesa(
+      mpesaPhoneNumber: mpesaPhoneNumber,
+      addressId: addressId,
+      billingAddressId: billingAddressId,
+      couponCode: couponCode,
+      couponDiscount: couponDiscount,
+      orderNote: orderNote,
+      guestId: guestId,
+      bringChangeAmount: bringChangeAmount,
+    );
+    _isLoading = false;
+    notifyListeners();
+    if (response.response != null && response.response!.statusCode == 200) {
+      // Success: handle navigation or state update as needed
+      showCustomSnackBar('Pagamento M-Pesa iniciado com sucesso!', Get.context!, isError: false);
+    } else {
+      showCustomSnackBar('Erro ao processar pagamento M-Pesa.', Get.context!);
+    }
+    return response;
+  }
   final CheckoutServiceInterface checkoutServiceInterface;
   CheckoutController({required this.checkoutServiceInterface});
 
