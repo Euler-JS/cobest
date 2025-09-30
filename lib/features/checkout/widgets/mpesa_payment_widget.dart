@@ -31,32 +31,56 @@ class _MpesaPaymentWidgetState extends State<MpesaPaymentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(Dimensions.paddingSizeDefault),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(getTranslated('enter_mpesa_phone', context) ?? 'Digite o número M-Pesa', style: textMedium),
-          const SizedBox(height: Dimensions.paddingSizeSmall),
-          TextField(
-            controller: _phoneController,
-            keyboardType: TextInputType.phone,
-            decoration: InputDecoration(
-              hintText: '+258841234567',
-              errorText: _error,
-              border: const OutlineInputBorder(),
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.all(Dimensions.paddingSizeDefault),
+        padding: const EdgeInsets.all(Dimensions.paddingSizeDefault),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 12,
+              offset: Offset(0, 4),
             ),
-          ),
-          const SizedBox(height: Dimensions.paddingSizeDefault),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: _validateAndConfirm,
-              child: Text(getTranslated('confirm', context) ?? 'Confirmar'),
+          ],
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(getTranslated('enter_mpesa_phone', context) ?? 'Digite o número M-Pesa', style: textMedium),
+            const SizedBox(height: Dimensions.paddingSizeSmall),
+            TextField(
+              controller: _phoneController,
+              keyboardType: TextInputType.phone,
+              decoration: InputDecoration(
+                hintText: '+258841234567',
+                errorText: _error,
+                border: const OutlineInputBorder(),
+                filled: true,
+                fillColor: Colors.white,
+              ),
             ),
-          ),
-        ],
+            const SizedBox(height: Dimensions.paddingSizeDefault),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: _validateAndConfirm,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).primaryColor,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                ),
+                child: Text(getTranslated('confirm', context) ?? 'Confirmar'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
