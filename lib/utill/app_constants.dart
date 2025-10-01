@@ -165,6 +165,9 @@ class AppConstants {
   static const String verifyTokenUri = '/api/v1/auth/verify-token';
   static const String existingAccountCheck = '/api/v1/auth/existing-account-check';
   static const String referralAmountUri = '/api/v1/cart/get-referral-discount-redeem';
+  static const String installmentOptionsUri = '/api/v1/customer/order/installment-options';
+  static const String installmentDetailsUri = '/api/v1/customer/order/installment-details';
+  static const String placeOrderByInstallmentUri = '/api/v1/customer/order/place-by-installment';
 
 
 

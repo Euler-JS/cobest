@@ -15,6 +15,7 @@ import '../widgets/shipping_details_widget.dart';
 import '../widgets/coupon_apply_widget.dart';
 import '../widgets/mpesa_payment_widget.dart';
 import '../widgets/payment_method_bottom_sheet_widget.dart';
+import '../widgets/installment_options_bottom_sheet.dart';
 import '../widgets/wallet_payment_widget.dart';
 import 'package:cobes_marketplace/common/basewidget/amount_widget.dart';
 import '../../offline_payment/screens/offline_payment_screen.dart';
@@ -324,6 +325,46 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                             );
                                           } else {
                                             showCustomSnackBar(resp.error ?? 'Erro ao processar pagamento Ponto24', context, isToaster: true);
+                                          }
+                                          return;
+                                        }
+
+                                        // Se método Pagamento a Prazo selecionado, abre bottom sheet para seleção de parcelas
+                                        if (orderProvider.selectedDigitalPaymentMethodName.toLowerCase().contains('prazo') || 
+                                            orderProvider.selectedDigitalPaymentMethodName.toLowerCase().contains('installment')) {
+                                          
+                                          // Primeiro busca as opções de parcelamento
+                                          final installmentResponse = await orderProvider.getInstallmentOptions(
+                                            couponDiscount: double.tryParse(couponCodeAmount) ?? 0,
+                                          );
+                                          
+                                          if (installmentResponse.response != null && 
+                                              installmentResponse.response!.statusCode == 200 &&
+                                              orderProvider.installmentOptions != null) {
+                                            
+                                            // Abre bottom sheet para seleção de parcelas
+                                            await showModalBottomSheet<void>(
+                                              context: context,
+                                              isScrollControlled: true,
+                                              backgroundColor: Colors.transparent,
+                                              builder: (context) => Consumer<CheckoutController>(
+                                                builder: (context, checkoutController, _) {
+                                                  return InstallmentOptionsBottomSheet(
+                                                    installmentOptions: checkoutController.installmentOptions!,
+                                                    onOrderComplete: (success, message, orderId) {
+                                                      if (success) {
+                                                        _callback(true, message, orderId ?? '', false);
+                                                      } else {
+                                                        showCustomSnackBar(message, context, isToaster: true);
+                                                      }
+                                                    },
+                                                  );
+                                                },
+                                              ),
+                                            );
+                                            
+                                          } else {
+                                            showCustomSnackBar('Erro ao carregar opções de parcelamento', context, isToaster: true);
                                           }
                                           return;
                                         }
