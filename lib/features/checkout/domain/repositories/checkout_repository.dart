@@ -1,36 +1,61 @@
 
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:cobes_marketplace/data/datasource/remote/dio/dio_client.dart';
 import 'package:cobes_marketplace/data/datasource/remote/exception/api_error_handler.dart';
 import 'package:cobes_marketplace/data/model/api_response.dart';
 import 'package:cobes_marketplace/features/checkout/domain/repositories/checkout_repository_interface.dart';
 import 'package:cobes_marketplace/main.dart';
 import 'package:cobes_marketplace/features/auth/controllers/auth_controller.dart';
+import 'package:cobes_marketplace/features/splash/controllers/splash_controller.dart';
 import 'package:cobes_marketplace/utill/app_constants.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
 
 class CheckoutRepository implements CheckoutRepositoryInterface{
-  final DioClient? dioClient;
-  CheckoutRepository({required this.dioClient});
-
-
   @override
-  Future<ApiResponseModel> cashOnDeliveryPlaceOrder(
-      {String? addressID,
-        String? couponCode,
-        String? couponDiscountAmount,
-        String? billingAddressId,
-        String? orderNote,
-        bool? isCheckCreateAccount,
-        String? password,
-        double? cashChangeAmount,
-        String? currentCurrencyCode,
-      }) async {
+  Future<ApiResponseModel> placeOrderByInstallment({
+    required int period,
+    required double amount,
+    required int quantity,
+    String? addressId,
+    String? billingAddressId,
+    String? orderNote,
+    String? guestId,
+  }) async {
     try {
-      // Build query parameters map
+      final Map<String, dynamic> payload = {
+        'payment_period': period,
+        'address_id': addressId,
+        'billing_address_id': billingAddressId,
+        'coupon_code': null,
+        'coupon_discount': 0,
+        'order_note': orderNote,
+        'guest_id': guestId,
+        'current_currency_code': Provider.of<SplashController>(Get.context!, listen: false).myCurrency?.code ?? 'MZN',
+      };
+      payload.removeWhere((k, v) => v == null);
+      print('[DIAGNOSTICO] Payload parcelamento: $payload');
+      final response = await dioClient!.post('/api/v1/order/place-by-installment', data: payload);
+      return ApiResponseModel.withSuccess(response);
+    } catch (e) {
+      return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
+  @override
+  Future<ApiResponseModel> cashOnDeliveryPlaceOrder({
+    String? addressID,
+    String? couponCode,
+    String? couponDiscountAmount,
+    String? billingAddressId,
+    String? orderNote,
+    bool? isCheckCreateAccount,
+    String? password,
+    double? cashChangeAmount,
+    String? currentCurrencyCode,
+  }) async {
+    try {
       final Map<String, dynamic> queryParams = {
         'address_id': addressID,
         'coupon_code': couponCode,
@@ -44,15 +69,40 @@ class CheckoutRepository implements CheckoutRepositoryInterface{
         'bring_change_amount' : cashChangeAmount,
         'current_currency_code': currentCurrencyCode,
       };
-
-      debugPrint('----------(order_place)-----$queryParams');
-
+  print('----------(order_place)-----$queryParams');
       final response = await dioClient!.get(AppConstants.orderPlaceUri, queryParameters: queryParams);
       return ApiResponseModel.withSuccess(response);
     } catch (e) {
       return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));
     }
   }
+  final DioClient? dioClient;
+  CheckoutRepository({required this.dioClient});
+
+
+  @override
+  Future<ApiResponseModel> getInstallmentOptions({
+    required double amount,
+    required int quantity,
+    String? addressId,
+    String? billingAddressId,
+  }) async {
+    try {
+      final Map<String, dynamic> queryParams = {
+        'amount': amount,
+        'quantity': quantity,
+        'address_id': addressId,
+        'billing_address_id': billingAddressId,
+        'coupon_discount': 0,
+        'current_currency_code': Provider.of<SplashController>(Get.context!, listen: false).myCurrency?.code ?? 'MZN',
+      };
+      final response = await dioClient!.get('/api/v1/customer/order/installment-options', queryParameters: queryParams);
+      return ApiResponseModel.withSuccess(response);
+    } catch (e) {
+      return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
+
 
 
   @override

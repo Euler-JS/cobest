@@ -22,10 +22,80 @@ import 'package:cobes_marketplace/common/basewidget/show_custom_snakbar_widget.d
 
 import 'package:cobes_marketplace/features/checkout/screens/digital_payment_order_place_screen.dart';
 
+import 'package:cobes_marketplace/features/checkout/domain/services/installment_payment_service.dart';
+
 
 
 
 class CheckoutController with ChangeNotifier {
+  // Installment payment state
+  List<Map<String, dynamic>>? installmentSchedule;
+  List<Map<String, dynamic>>? installmentOptions;
+  int? selectedInstallmentPeriod;
+  double? installmentTotalAmount;
+  double? installmentPerMonthAmount;
+  bool isLoadingInstallment = false;
+
+  // Log dos métodos de pagamento recebidos da API
+  List<dynamic>? paymentMethodsApi;
+
+  Future<void> logPaymentMethodsFromApi(dynamic apiResponse) async {
+    if (apiResponse != null && apiResponse['payment_methods'] != null) {
+      paymentMethodsApi = apiResponse['payment_methods'];
+      print('[DIAGNOSTICO] Métodos de pagamento recebidos da API: $paymentMethodsApi');
+    } else {
+      print('[DIAGNOSTICO] Nenhum método de pagamento recebido da API.');
+    }
+  }
+
+  Future<void> fetchInstallmentOptions({
+    required double amount,
+    required int quantity,
+    String? addressId,
+    String? billingAddressId,
+  }) async {
+    isLoadingInstallment = true;
+    notifyListeners();
+    final service = InstallmentPaymentService(checkoutService: checkoutServiceInterface);
+    final resp = await service.getInstallmentOptions(
+      amount: amount,
+      quantity: quantity,
+      addressId: addressId,
+      billingAddressId: billingAddressId,
+    );
+    print('[DIAGNOSTICO] Resposta da API de parcelas: ${resp.response?.data}');
+    isLoadingInstallment = false;
+    if (resp.response != null && resp.response!.statusCode == 200) {
+      // Parse schedule and amounts from API response
+      final data = resp.response!.data;
+      installmentOptions = (data['installment_options'] as List?)?.map((e) => Map<String, dynamic>.from(e)).toList();
+      installmentSchedule = (data['schedule'] as List?)?.map((e) => Map<String, dynamic>.from(e)).toList();
+      installmentTotalAmount = double.tryParse(data['total_amount']?.toString() ?? '0');
+      installmentPerMonthAmount = double.tryParse(data['per_month_amount']?.toString() ?? '0');
+      selectedInstallmentPeriod = data['period'] is int ? data['period'] : null;
+    } else {
+      installmentOptions = null;
+      installmentSchedule = null;
+      installmentTotalAmount = null;
+      installmentPerMonthAmount = null;
+      selectedInstallmentPeriod = null;
+    }
+    notifyListeners();
+  }
+
+  void setSelectedInstallmentPeriod(int period) {
+    selectedInstallmentPeriod = period;
+    notifyListeners();
+  }
+
+  void clearInstallmentData() {
+    installmentSchedule = null;
+    installmentTotalAmount = null;
+    installmentPerMonthAmount = null;
+    selectedInstallmentPeriod = null;
+    isLoadingInstallment = false;
+    notifyListeners();
+  }
   // Ponto24 payment method
   Future<ApiResponseModel> placeOrderByPonto24({
     required String addressId,
@@ -255,6 +325,18 @@ class CheckoutController with ChangeNotifier {
     isCODChecked = false;
     isWalletChecked = false;
     isOfflineChecked = false;
+    if (name == 'pagamento_a_prazo') {
+      print('[DIAGNOSTICO] Você clicou em pagamento a prazo');
+      // Chama opções de parcelamento (valores de exemplo, ajuste conforme necessário)
+      fetchInstallmentOptions(
+        amount: 1000, // Troque para o valor real do pedido
+        quantity: 1, // Troque para a quantidade real
+        addressId: null, // Troque para o endereço real
+        billingAddressId: null, // Troque para o endereço de cobrança real
+      ).then((_) {
+        print('[DIAGNOSTICO] Opções de pagamento a prazo: $installmentSchedule');
+      });
+    }
     notifyListeners();
   }
 

@@ -1,5 +1,16 @@
+ 
 abstract class CheckoutServiceInterface{
 
+ Future<dynamic> placeOrderByInstallment({
+    required int period,
+    required double amount,
+    required int quantity,
+    String? addressId,
+    String? billingAddressId,
+    String? orderNote,
+    String? guestId,
+  });
+  
   Future<dynamic> cashOnDeliveryPlaceOrder({
     String? addressID,
     String? couponCode,
@@ -22,4 +33,10 @@ abstract class CheckoutServiceInterface{
 
   Future<dynamic> getReferralAmount(String? amount);
 
+  Future<dynamic> getInstallmentOptions({
+    required double amount,
+    required int quantity,
+    String? addressId,
+    String? billingAddressId,
+  });
 }

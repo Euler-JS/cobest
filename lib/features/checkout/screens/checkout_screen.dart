@@ -168,6 +168,34 @@ class CheckoutScreen extends StatefulWidget {
 }
 
 class CheckoutScreenState extends State<CheckoutScreen> {
+  // ...existing code...
+
+  Widget _buildInstallmentOptions(CheckoutController orderProvider) {
+    final options = orderProvider.installmentOptions;
+    final isLoading = orderProvider.isLoadingInstallment;
+    final selectedPeriod = orderProvider.selectedInstallmentPeriod;
+    if (isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (options == null || options.isEmpty) {
+      return const Center(child: Text('Nenhuma opção de parcelamento disponível.'));
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Escolha o período de parcelamento:', style: TextStyle(fontWeight: FontWeight.bold)),
+        ...options.map((opt) => RadioListTile<int>(
+              title: Text(opt['description'] ?? ''),
+              subtitle: Text('Valor da parcela: ${opt['installment_value_formatted'] ?? ''}'),
+              value: opt['period'],
+              groupValue: selectedPeriod,
+              onChanged: (val) {
+                orderProvider.setSelectedInstallmentPeriod(val!);
+              },
+            ))
+      ],
+    );
+  }
   final GlobalKey<ScaffoldMessengerState> _scaffoldKey = GlobalKey<ScaffoldMessengerState>();
   final TextEditingController _controller = TextEditingController();
   final GlobalKey<FormState> passwordFormKey = GlobalKey<FormState>();
@@ -442,6 +470,11 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
                           child: ChoosePaymentWidget(onlyDigital: widget.onlyDigital),
                         ),
+                        if (orderProvider.selectedDigitalPaymentMethodName == 'pagamento_a_prazo' && orderProvider.installmentOptions != null && orderProvider.installmentOptions!.isNotEmpty)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                            child: _buildInstallmentOptions(orderProvider),
+                          ),
                         Padding(
                           padding: const EdgeInsets.fromLTRB(
                               Dimensions.paddingSizeDefault,

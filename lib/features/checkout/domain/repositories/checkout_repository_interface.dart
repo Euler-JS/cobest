@@ -1,6 +1,18 @@
+
+
 import 'package:cobes_marketplace/interface/repo_interface.dart';
 
 abstract class CheckoutRepositoryInterface implements RepositoryInterface{
+
+  Future<dynamic> placeOrderByInstallment({
+    required int period,
+    required double amount,
+    required int quantity,
+    String? addressId,
+    String? billingAddressId,
+    String? orderNote,
+    String? guestId,
+  });
 
   Future<dynamic> cashOnDeliveryPlaceOrder({
     String? addressID,
@@ -24,5 +36,10 @@ abstract class CheckoutRepositoryInterface implements RepositoryInterface{
 
   Future<dynamic> getReferralAmount(String? amount);
 
-
+  Future<dynamic> getInstallmentOptions({
+    required double amount,
+    required int quantity,
+    String? addressId,
+    String? billingAddressId,
+  });
 }

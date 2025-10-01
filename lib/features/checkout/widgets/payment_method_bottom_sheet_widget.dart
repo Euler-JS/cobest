@@ -37,8 +37,20 @@ class PaymentMethodBottomSheetWidgetState extends State<PaymentMethodBottomSheet
   @override
   Widget build(BuildContext context) {
 
-    final ConfigModel? configModel = Provider.of<SplashController>(context, listen: false).configModel;
+    final configProvider = Provider.of<SplashController>(context, listen: false);
+    final ConfigModel? configModel = configProvider.configModel;
     final bool isLtr = Provider.of<LocalizationController>(context, listen: false).isLtr;
+
+    // Print detalhado do objeto configProvider e dos métodos de pagamento
+    print('[DIAGNOSTICO] configProvider: $configProvider');
+    if (configModel != null && configModel.paymentMethods != null) {
+      print('[DIAGNOSTICO] configModel.paymentMethods:');
+      for (var method in configModel.paymentMethods!) {
+        print('  - ${method.keyName} | ${method.additionalDatas?.gatewayTitle}');
+      }
+    } else {
+      print('[DIAGNOSTICO] Nenhum método de pagamento encontrado em configModel.');
+    }
 
     return Consumer<CheckoutController>(
       builder: (context, checkoutController, _) {
@@ -139,6 +151,7 @@ class PaymentMethodBottomSheetWidgetState extends State<PaymentMethodBottomSheet
 
                             if((configModel?.digitalPayment ?? false) && (configModel?.paymentMethods?.isNotEmpty ?? false))
                               Consumer<SplashController>(builder: (context, configProvider,_) {
+                                print('Config model payment methods: ${configProvider.configModel?.paymentMethods}');
                                 return ListView.builder(
                                   padding: EdgeInsets.zero,
                                   itemCount: configProvider.configModel?.paymentMethods?.length??0,

@@ -2,6 +2,46 @@ import 'package:cobes_marketplace/features/checkout/domain/repositories/checkout
 import 'package:cobes_marketplace/features/checkout/domain/services/checkout_service_interface.dart';
 
 class CheckoutService implements CheckoutServiceInterface{
+  @override
+  Future getInstallmentOptions({
+    required double amount,
+    required int quantity,
+    String? addressId,
+    String? billingAddressId,
+  }) async {
+    // Diagnóstico: print dos parâmetros usados na requisição
+    print('[DIAGNOSTICO] getInstallmentOptions: amount=$amount, quantity=$quantity, addressId=$addressId, billingAddressId=$billingAddressId');
+    // O valor de currency_code é resolvido no repository, mas pode ser útil logar aqui também se for passado por parâmetro
+    return await checkoutRepositoryInterface.getInstallmentOptions(
+      amount: amount,
+      quantity: quantity,
+      addressId: addressId,
+      billingAddressId: billingAddressId,
+    );
+  }
+
+  @override
+  Future placeOrderByInstallment({
+    required int period,
+    required double amount,
+    required int quantity,
+    String? addressId,
+    String? billingAddressId,
+    String? orderNote,
+    String? guestId,
+  }) async {
+    print('[]DIAGNOSTICO placeOrderByInstallment: period=$period, amount=$amount, quantity=$quantity, addressId=$addressId, billingAddressId=$billingAddressId, orderNote=$orderNote, guestId=$guestId');
+    // O valor de currency_code é resolvido no repository, mas pode ser útil logar aqui também se for passado por parâmetro
+    return await checkoutRepositoryInterface.placeOrderByInstallment(
+      period: period,
+      amount: amount,
+      quantity: quantity,
+      addressId: addressId,
+      billingAddressId: billingAddressId,
+      orderNote: orderNote,
+      guestId: guestId,
+    );
+  }
   CheckoutRepositoryInterface checkoutRepositoryInterface;
 
 
