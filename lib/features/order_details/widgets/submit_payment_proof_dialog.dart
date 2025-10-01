@@ -5,6 +5,7 @@ import 'package:cobes_marketplace/features/order_details/controllers/order_detai
 import 'package:cobes_marketplace/features/order_details/domain/models/installment_model.dart';
 import 'package:cobes_marketplace/utill/custom_themes.dart';
 import 'package:cobes_marketplace/utill/dimensions.dart';
+import 'package:cobes_marketplace/localization/language_constrants.dart';
 import 'package:provider/provider.dart';
 
 class SubmitPaymentProofDialog extends StatefulWidget {
@@ -46,7 +47,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Erro ao selecionar imagem: $e')),
+        SnackBar(content: Text('${getTranslated('error_selecting_image', context) ?? 'Error selecting image'}: $e')),
       );
     }
   }
@@ -67,7 +68,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Erro ao tirar foto: $e')),
+        SnackBar(content: Text('${getTranslated('error_taking_photo', context) ?? 'Error taking photo'}: $e')),
       );
     }
   }
@@ -77,13 +78,13 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Selecionar Imagem'),
+          title: Text(getTranslated('select_image', context) ?? 'Select Image'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
                 leading: const Icon(Icons.camera_alt),
-                title: const Text('Tirar Foto'),
+                title: Text(getTranslated('take_photo', context) ?? 'Take Photo'),
                 onTap: () {
                   Navigator.pop(context);
                   _takePhoto();
@@ -91,7 +92,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
               ),
               ListTile(
                 leading: const Icon(Icons.photo_library),
-                title: const Text('Escolher da Galeria'),
+                title: Text(getTranslated('choose_from_gallery', context) ?? 'Choose from Gallery'),
                 onTap: () {
                   Navigator.pop(context);
                   _pickImage();
@@ -107,14 +108,14 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
   void _submitProof() async {
     if (_selectedImage == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Por favor, selecione uma imagem do comprovativo')),
+        SnackBar(content: Text(getTranslated('please_select_image', context) ?? 'Please select a payment proof image')),
       );
       return;
     }
 
     if (_noteController.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Por favor, adicione uma nota sobre o pagamento')),
+        SnackBar(content: Text(getTranslated('please_add_note', context) ?? 'Please add a note about the payment')),
       );
       return;
     }
@@ -136,7 +137,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
       print('AVISO: Usando installment_number como ID fallback: $installmentId');
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro: ID da parcela não encontrado')),
+        SnackBar(content: Text(getTranslated('installment_id_not_found', context) ?? 'Installment ID not found')),
       );
       return;
     }
@@ -175,7 +176,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
                 const SizedBox(width: Dimensions.paddingSizeSmall),
                 Expanded(
                   child: Text(
-                    'Enviar Comprovativo',
+                    getTranslated('submit_payment_proof', context) ?? 'Submit Payment Proof',
                     style: robotoBold.copyWith(
                       fontSize: Dimensions.fontSizeLarge,
                       color: Theme.of(context).textTheme.bodyLarge?.color,
@@ -222,7 +223,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Parcela ${widget.installment.installmentNumber}',
+                          '${getTranslated('installment', context) ?? 'Installment'} ${widget.installment.installmentNumber}',
                           style: robotoBold.copyWith(
                             fontSize: Dimensions.fontSizeDefault,
                             color: Theme.of(context).textTheme.bodyLarge?.color,
@@ -236,7 +237,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
                           ),
                         ),
                         Text(
-                          'Vencimento: ${widget.installment.dueDateFormatted}',
+                          '${getTranslated('due_date', context) ?? 'Due Date'}: ${widget.installment.dueDateFormatted}',
                           style: titilliumRegular.copyWith(
                             fontSize: Dimensions.fontSizeSmall,
                             color: Theme.of(context).textTheme.bodyMedium?.color,
@@ -252,7 +253,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
 
             // Seleção de imagem
             Text(
-              'Comprovativo de Pagamento:',
+              '${getTranslated('payment_proof', context) ?? 'Payment Proof'}:',
               style: robotoBold.copyWith(
                 fontSize: Dimensions.fontSizeDefault,
                 color: Theme.of(context).textTheme.bodyLarge?.color,
@@ -316,7 +317,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
                           ),
                           const SizedBox(height: Dimensions.paddingSizeSmall),
                           Text(
-                            'Toque para adicionar imagem',
+                            getTranslated('tap_to_add_image', context) ?? 'Tap to add image',
                             style: titilliumRegular.copyWith(
                               fontSize: Dimensions.fontSizeDefault,
                               color: Theme.of(context).textTheme.bodyMedium?.color,
@@ -330,7 +331,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
 
             // Nota do cliente
             Text(
-              'Nota sobre o pagamento:',
+              '${getTranslated('note_about_payment', context) ?? 'Note about payment'}:',
               style: robotoBold.copyWith(
                 fontSize: Dimensions.fontSizeDefault,
                 color: Theme.of(context).textTheme.bodyLarge?.color,
@@ -342,7 +343,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
               controller: _noteController,
               maxLines: 3,
               decoration: InputDecoration(
-                hintText: 'Ex: Pagamento realizado via transferência bancária em ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
+                hintText: '${getTranslated('payment_proof_placeholder', context) ?? 'Ex: Payment made via bank transfer on'} ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall),
                 ),
@@ -360,7 +361,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
                 Expanded(
                   child: OutlinedButton(
                     onPressed: () => Navigator.pop(context),
-                    child: const Text('Cancelar'),
+                    child: Text(getTranslated('cancel', context) ?? 'Cancel'),
                   ),
                 ),
                 const SizedBox(width: Dimensions.paddingSizeSmall),
@@ -378,7 +379,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
                                   valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                                 ),
                               )
-                            : const Text('Enviar'),
+                            : Text(getTranslated('send', context) ?? 'Send'),
                       );
                     },
                   ),

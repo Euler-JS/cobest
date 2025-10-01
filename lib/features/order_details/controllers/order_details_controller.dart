@@ -136,7 +136,7 @@ class OrderDetailsController with ChangeNotifier {
 
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       print('Comprovativo enviado com sucesso!');
-      showCustomSnackBar('Comprovativo enviado com sucesso!', Get.context!, isError: false);
+      showCustomSnackBar('Payment proof submitted successfully!', Get.context!, isError: false);
       // Recarregar os dados de parcelamento para atualizar o status
       if (orders?.id != null) {
         await getOrderDetailsWithInstallments(orders!.id.toString());
@@ -144,7 +144,7 @@ class OrderDetailsController with ChangeNotifier {
     } else {
       print('Erro ao enviar comprovativo: ${apiResponse.error}');
       showCustomSnackBar(
-        apiResponse.error ?? 'Erro ao enviar comprovativo',
+        apiResponse.error ?? 'Error submitting payment proof',
         Get.context!,
         isError: true,
       );

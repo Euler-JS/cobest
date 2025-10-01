@@ -231,6 +231,7 @@ class AppConstants {
     LanguageModel(imageUrl: Images.hi, languageName: 'Hindi', countryCode: 'IN', languageCode: 'hi'),
     LanguageModel(imageUrl: Images.bn, languageName: 'Bangla', countryCode: 'BD', languageCode: 'bn'),
     LanguageModel(imageUrl: Images.es, languageName: 'Spanish', countryCode: 'ES', languageCode: 'es'),
+    LanguageModel(imageUrl: Images.pt, languageName: 'Português', countryCode: 'PT', languageCode: 'pt'),
   ];
 
 

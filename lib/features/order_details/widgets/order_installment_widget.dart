@@ -3,6 +3,7 @@ import 'package:cobes_marketplace/features/order_details/domain/models/installme
 import 'package:cobes_marketplace/features/order_details/widgets/submit_payment_proof_dialog.dart';
 import 'package:cobes_marketplace/utill/custom_themes.dart';
 import 'package:cobes_marketplace/utill/dimensions.dart';
+import 'package:cobes_marketplace/localization/language_constrants.dart';
 
 class OrderInstallmentWidget extends StatelessWidget {
   final OrderInstallmentDetailsModel? installmentDetails;
@@ -47,7 +48,7 @@ class OrderInstallmentWidget extends StatelessWidget {
               ),
               const SizedBox(width: Dimensions.paddingSizeSmall),
               Text(
-                'Detalhes do Parcelamento',
+                getTranslated('installment_details', context) ?? 'Installment Details',
                 style: robotoBold.copyWith(
                   fontSize: Dimensions.fontSizeLarge,
                   color: Theme.of(context).textTheme.bodyLarge?.color,
@@ -68,19 +69,19 @@ class OrderInstallmentWidget extends StatelessWidget {
               children: [
                 _buildInfoRow(
                   context,
-                  'Método de Pagamento:',
-                  _formatPaymentMethod(installmentDetails!.paymentMethod),
+                  '${getTranslated('payment_method', context) ?? 'Payment Method'}:',
+                  _formatPaymentMethod(context, installmentDetails!.paymentMethod),
                 ),
                 const SizedBox(height: Dimensions.paddingSizeExtraSmall),
                 _buildInfoRow(
                   context,
-                  'Número de Parcelas:',
+                  '${getTranslated('number_of_installments', context) ?? 'Number of Installments'}:',
                   '${installmentDetails!.paymentPeriod}x',
                 ),
                 const SizedBox(height: Dimensions.paddingSizeExtraSmall),
                 _buildInfoRow(
                   context,
-                  'Valor da Parcela:',
+                  '${getTranslated('installment_value', context) ?? 'Installment Value'}:',
                   'MT ${installmentDetails!.installmentValue?.toStringAsFixed(2)}',
                 ),
               ],
@@ -91,7 +92,7 @@ class OrderInstallmentWidget extends StatelessWidget {
 
           // Lista de parcelas
           Text(
-            'Cronograma de Pagamentos:',
+            '${getTranslated('payment_schedule', context) ?? 'Payment Schedule'}:',
             style: robotoBold.copyWith(
               fontSize: Dimensions.fontSizeDefault,
               color: Theme.of(context).textTheme.bodyLarge?.color,
@@ -200,7 +201,7 @@ class OrderInstallmentWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: Dimensions.paddingSizeExtraSmall),
                 Text(
-                  'Vencimento: ${installment.dueDateFormatted}',
+                  '${getTranslated('due_date', context) ?? 'Due Date'}: ${installment.dueDateFormatted}',
                   style: titilliumRegular.copyWith(
                     fontSize: Dimensions.fontSizeSmall,
                     color: Theme.of(context).textTheme.bodyMedium?.color,
@@ -214,7 +215,7 @@ class OrderInstallmentWidget extends StatelessWidget {
                     child: ElevatedButton.icon(
                       onPressed: () => _showSubmitProofDialog(context, installment),
                       icon: const Icon(Icons.receipt, size: 16),
-                      label: const Text('Enviar Comprovativo'),
+                      label: Text(getTranslated('send_payment_proof', context) ?? 'Send Payment Proof'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Theme.of(context).primaryColor,
                         foregroundColor: Colors.white,
@@ -246,14 +247,14 @@ class OrderInstallmentWidget extends StatelessWidget {
     );
   }
 
-  String _formatPaymentMethod(String? method) {
+  String _formatPaymentMethod(BuildContext context, String? method) {
     switch (method?.toLowerCase()) {
       case 'pagamento_a_prazo':
-        return 'Pagamento a Prazo';
+        return getTranslated('payment_a_prazo', context) ?? 'Term Payment';
       case 'credit_card':
-        return 'Cartão de Crédito';
+        return getTranslated('credit_card', context) ?? 'Credit Card';
       case 'debit_card':
-        return 'Cartão de Débito';
+        return getTranslated('debit_card', context) ?? 'Debit Card';
       default:
         return method ?? 'N/A';
     }
