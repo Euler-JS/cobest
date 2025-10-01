@@ -107,7 +107,7 @@ class _InstallmentOptionsBottomSheetState extends State<InstallmentOptionsBottom
                     ),
                   ),
                   Text(
-                    '${widget.installmentOptions.cartTotalFormatted} MT',
+                    '${widget.installmentOptions.cartTotalFormatted} ',
                     style: titilliumSemiBold.copyWith(
                       fontSize: Dimensions.fontSizeLarge,
                       color: Theme.of(context).primaryColor,
@@ -211,7 +211,7 @@ class _InstallmentOptionsBottomSheetState extends State<InstallmentOptionsBottom
                                       ),
                                     ),
                                     Text(
-                                      '${option.installmentValueFormatted} MT',
+                                      '${option.installmentValueFormatted} ',
                                       style: textRegular.copyWith(
                                         fontSize: Dimensions.fontSizeSmall,
                                         color: Theme.of(context).textTheme.bodyLarge?.color,
@@ -258,7 +258,7 @@ class _InstallmentOptionsBottomSheetState extends State<InstallmentOptionsBottom
                 
                 print('===== OPÇÃO DE PARCELAMENTO SELECIONADA =====');
                 print('Período: ${selectedOption.period} meses');
-                print('Valor da parcela: ${selectedOption.installmentValueFormatted} MT');
+                print('Valor da parcela: ${selectedOption.installmentValueFormatted} ');
                 print('Descrição: ${selectedOption.description}');
                 
                 // Close bottom sheet first

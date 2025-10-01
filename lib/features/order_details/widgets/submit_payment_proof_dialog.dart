@@ -113,13 +113,6 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
       return;
     }
 
-    if (_noteController.text.trim().isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(getTranslated('please_add_note', context) ?? 'Please add a note about the payment')),
-      );
-      return;
-    }
-
     // Debug: Vamos verificar se o ID existe
     print('=== DEBUG SUBMIT PROOF ===');
     print('Installment ID: ${widget.installment.id}');
@@ -230,7 +223,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
                           ),
                         ),
                         Text(
-                          'MT ${widget.installment.amountFormatted}',
+                          ' ${widget.installment.amountFormatted}',
                           style: titilliumRegular.copyWith(
                             fontSize: Dimensions.fontSizeSmall,
                             color: Theme.of(context).primaryColor,
@@ -331,7 +324,7 @@ class _SubmitPaymentProofDialogState extends State<SubmitPaymentProofDialog> {
 
             // Nota do cliente
             Text(
-              '${getTranslated('note_about_payment', context) ?? 'Note about payment'}:',
+              '${getTranslated('note_about_payment', context) ?? 'Note about payment'} (${getTranslated('optional', context) ?? 'Optional'}):',
               style: robotoBold.copyWith(
                 fontSize: Dimensions.fontSizeDefault,
                 color: Theme.of(context).textTheme.bodyLarge?.color,

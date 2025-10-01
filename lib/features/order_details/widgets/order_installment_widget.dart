@@ -82,7 +82,7 @@ class OrderInstallmentWidget extends StatelessWidget {
                 _buildInfoRow(
                   context,
                   '${getTranslated('installment_value', context) ?? 'Installment Value'}:',
-                  'MT ${installmentDetails!.installmentValue?.toStringAsFixed(2)}',
+                  ' ${installmentDetails!.installmentValue?.toStringAsFixed(2)}',
                 ),
               ],
             ),
@@ -174,7 +174,7 @@ class OrderInstallmentWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'MT ${installment.amountFormatted}',
+                      ' ${installment.amountFormatted}',
                       style: robotoBold.copyWith(
                         fontSize: Dimensions.fontSizeDefault,
                         color: Theme.of(context).textTheme.bodyLarge?.color,
