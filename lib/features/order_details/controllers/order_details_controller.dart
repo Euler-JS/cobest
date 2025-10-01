@@ -65,6 +65,9 @@ class OrderDetailsController with ChangeNotifier {
   OrderInstallmentDetailsModel? _orderInstallmentDetails;
   OrderInstallmentDetailsModel? get orderInstallmentDetails => _orderInstallmentDetails;
 
+  bool _isSubmittingProof = false;
+  bool get isSubmittingProof => _isSubmittingProof;
+
   Future <ApiResponseModel> getOrderDetails(String orderID) async {
     _orderDetails = null;
     ApiResponseModel apiResponse = await orderDetailsServiceInterface.getOrderDetails(orderID);
@@ -88,12 +91,67 @@ class OrderDetailsController with ChangeNotifier {
     ApiResponseModel apiResponse = await orderDetailsServiceInterface.getOrderDetailsWithInstallments(orderID);
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       print('Response Data: ${apiResponse.response!.data}');
+      
+      // Debug: Vamos verificar especificamente os IDs das parcelas na nova estrutura
+      var paymentInstallments = apiResponse.response!.data['payment_installments'];
+      if (paymentInstallments != null && paymentInstallments['installments'] != null) {
+        print('=== DEBUG INSTALLMENT IDs (Nova Estrutura) ===');
+        for (var installment in paymentInstallments['installments']) {
+          print('Installment ${installment['installment_number']}: ID = ${installment['id']}');
+          print('  - Amount: ${installment['amount']}');
+          print('  - Status: ${installment['status']}');
+          print('  - Can Submit Proof: ${installment['can_submit_proof']}');
+        }
+        print('==============================================');
+      }
+      
       _orderInstallmentDetails = OrderInstallmentDetailsModel.fromJson(apiResponse.response!.data);
       print('Parsed installment details successfully');
     } else {
       print('Error getting installment details: ${apiResponse.error}');
     }
     print('======================================================');
+    notifyListeners();
+    return apiResponse;
+  }
+
+  Future<ApiResponseModel> submitInstallmentPaymentProof({
+    required int installmentId,
+    required String imagePath,
+    required String customerNote,
+  }) async {
+    _isSubmittingProof = true;
+    notifyListeners();
+
+    print('========== ENVIANDO COMPROVATIVO DE PAGAMENTO ==========');
+    print('Installment ID: $installmentId');
+    print('Image Path: $imagePath');
+    print('Customer Note: $customerNote');
+
+    ApiResponseModel apiResponse = await orderDetailsServiceInterface.submitInstallmentPaymentProof(
+      installmentId,
+      imagePath,
+      customerNote,
+    );
+
+    if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
+      print('Comprovativo enviado com sucesso!');
+      showCustomSnackBar('Comprovativo enviado com sucesso!', Get.context!, isError: false);
+      // Recarregar os dados de parcelamento para atualizar o status
+      if (orders?.id != null) {
+        await getOrderDetailsWithInstallments(orders!.id.toString());
+      }
+    } else {
+      print('Erro ao enviar comprovativo: ${apiResponse.error}');
+      showCustomSnackBar(
+        apiResponse.error ?? 'Erro ao enviar comprovativo',
+        Get.context!,
+        isError: true,
+      );
+    }
+
+    print('======================================================');
+    _isSubmittingProof = false;
     notifyListeners();
     return apiResponse;
   }

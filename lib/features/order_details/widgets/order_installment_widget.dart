@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cobes_marketplace/features/order_details/domain/models/installment_model.dart';
+import 'package:cobes_marketplace/features/order_details/widgets/submit_payment_proof_dialog.dart';
 import 'package:cobes_marketplace/utill/custom_themes.dart';
 import 'package:cobes_marketplace/utill/dimensions.dart';
 
@@ -205,11 +206,43 @@ class OrderInstallmentWidget extends StatelessWidget {
                     color: Theme.of(context).textTheme.bodyMedium?.color,
                   ),
                 ),
+                // Botão para enviar comprovativo se status for pending
+                if (installment.status?.toLowerCase() == 'pending') ...[
+                  const SizedBox(height: Dimensions.paddingSizeSmall),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      onPressed: () => _showSubmitProofDialog(context, installment),
+                      icon: const Icon(Icons.receipt, size: 16),
+                      label: const Text('Enviar Comprovativo'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Theme.of(context).primaryColor,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(
+                          vertical: Dimensions.paddingSizeExtraSmall,
+                        ),
+                        textStyle: titilliumSemiBold.copyWith(
+                          fontSize: Dimensions.fontSizeSmall,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  void _showSubmitProofDialog(BuildContext context, InstallmentModel installment) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return SubmitPaymentProofDialog(installment: installment);
+      },
     );
   }
 
