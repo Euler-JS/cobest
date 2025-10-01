@@ -20,6 +20,11 @@ class OrderDetailsService implements OrderDetailsServiceInterface{
   }
 
   @override
+  Future getOrderDetailsWithInstallments(String orderID) async{
+    return await orderDetailsRepositoryInterface.getOrderDetailsWithInstallments(orderID);
+  }
+
+  @override
   Future getOrderInvoice(String orderID) async{
     return await orderDetailsRepositoryInterface.getOrderInvoice(orderID);
   }

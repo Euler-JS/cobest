@@ -48,6 +48,7 @@ class AppConstants {
   static const String relatedProductUri = '/api/v1/products/related-products/';
   static const String orderUri = '/api/v1/customer/order/list?limit=10&offset=';
   static const String orderDetailsUri = '/api/v1/customer/order/details?order_id=';
+  static const String orderDetailsWithInstallmentsUri = '/api/v1/customer/order/details-with-installments?order_id=';
   static const String orderPlaceUri = '/api/v1/customer/order/place';
   static const String sellerUri = '/api/v1/seller?seller_id=';
   static const String sellerProductUri = '/api/v1/seller/';

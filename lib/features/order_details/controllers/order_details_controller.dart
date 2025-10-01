@@ -4,6 +4,7 @@ import 'package:cobes_marketplace/common/basewidget/show_custom_snakbar_widget.d
 import 'package:cobes_marketplace/data/model/api_response.dart';
 import 'package:cobes_marketplace/features/order/domain/models/order_model.dart';
 import 'package:cobes_marketplace/features/order_details/domain/models/order_details_model.dart';
+import 'package:cobes_marketplace/features/order_details/domain/models/installment_model.dart';
 import 'package:cobes_marketplace/features/order_details/domain/services/order_details_service_interface.dart';
 import 'package:cobes_marketplace/features/review/controllers/review_controller.dart';
 import 'package:cobes_marketplace/helper/api_checker.dart';
@@ -61,6 +62,9 @@ class OrderDetailsController with ChangeNotifier {
   List<OrderDetailsModel>? _orderDetails;
   List<OrderDetailsModel>? get orderDetails => _orderDetails;
 
+  OrderInstallmentDetailsModel? _orderInstallmentDetails;
+  OrderInstallmentDetailsModel? get orderInstallmentDetails => _orderInstallmentDetails;
+
   Future <ApiResponseModel> getOrderDetails(String orderID) async {
     _orderDetails = null;
     ApiResponseModel apiResponse = await orderDetailsServiceInterface.getOrderDetails(orderID);
@@ -76,8 +80,27 @@ class OrderDetailsController with ChangeNotifier {
     return apiResponse;
   }
 
+  Future <ApiResponseModel> getOrderDetailsWithInstallments(String orderID) async {
+    _orderInstallmentDetails = null;
+    print('========== DETALHES DE PAGAMENTOS PARCELADOS ==========');
+    print('Order ID: $orderID');
+    
+    ApiResponseModel apiResponse = await orderDetailsServiceInterface.getOrderDetailsWithInstallments(orderID);
+    if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
+      print('Response Data: ${apiResponse.response!.data}');
+      _orderInstallmentDetails = OrderInstallmentDetailsModel.fromJson(apiResponse.response!.data);
+      print('Parsed installment details successfully');
+    } else {
+      print('Error getting installment details: ${apiResponse.error}');
+    }
+    print('======================================================');
+    notifyListeners();
+    return apiResponse;
+  }
+
   void emptyOrderDetails() {
     _orderDetails = null;
+    _orderInstallmentDetails = null;
     orders = null;
     notifyListeners();
   }

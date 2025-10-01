@@ -35,6 +35,16 @@ class OrderDetailsRepository implements OrderDetailsRepositoryInterface{
     }
   }
 
+  @override
+  Future<ApiResponseModel> getOrderDetailsWithInstallments(String orderID) async {
+    try {
+      final response = await dioClient!.get(AppConstants.orderDetailsWithInstallmentsUri+orderID);
+      return ApiResponseModel.withSuccess(response);
+    } catch (e) {
+      return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
+
 
   @override
   Future<ApiResponseModel> downloadDigitalProduct(int orderDetailsId) async {
