@@ -130,6 +130,9 @@ class AppConstants {
   static const String businessPagesUri = '/api/v1/business-pages?type=';
   static const String getDeliveryManReview = '/api/v1/customer/order/deliveryman-review?order_id=';
   static const String submitDeliveryManReview = '/api/v1/customer/order/deliveryman-review/update?order_id=';
+  static const String purchaseRequestStores = '/api/v1/purchase-requests/stores';
+  static const String purchaseRequestCreate = '/api/v1/purchase-requests';
+  static const String purchaseRequestShow = '/api/v1/purchase-requests/';
 
 
   //address
